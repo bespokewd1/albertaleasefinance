@@ -1,1 +1,264 @@
 @import "tailwindcss" important;
+
+@theme {
+  /* === Brand palette: prairie modern luxury === */
+  --color-bone: #f8f4ed;
+  --color-bone-soft: #f1ebe0;
+  --color-cream: #fbf8f2;
+  --color-paper: #ffffff;
+
+  --color-ink: #0d1417;
+  --color-ink-soft: #1a2328;
+  --color-graphite: #2c373c;
+  --color-muted: #6b665e;
+  --color-line: #e3dccf;
+  --color-line-soft: #ece5d6;
+
+  --color-primary: #0e3b43;
+  --color-primary-tint: #15535d;
+  --color-primary-deep: #082329;
+  --color-primary-soft: #d6e2e3;
+
+  --color-accent: #c2410c;
+  --color-accent-bright: #ea580c;
+  --color-accent-soft: #fde6d3;
+  --color-accent-deep: #7c2d12;
+
+  --color-gold: #b89154;
+  --color-gold-soft: #ead7b6;
+
+  --color-success: #166534;
+  --color-success-soft: #d6efd9;
+
+  /* === Type scale (clamp-based, fluid) === */
+  --text-eyebrow: clamp(0.7rem, 0.65rem + 0.25vw, 0.8125rem);
+  --text-eyebrow--line-height: 1.2;
+  --text-eyebrow--letter-spacing: 0.18em;
+
+  --text-body-s: clamp(0.8125rem, 0.78rem + 0.15vw, 0.9rem);
+  --text-body-s--line-height: 1.55;
+
+  --text-body-m: clamp(0.95rem, 0.9rem + 0.2vw, 1.0625rem);
+  --text-body-m--line-height: 1.65;
+
+  --text-body-l: clamp(1.0625rem, 1rem + 0.4vw, 1.25rem);
+  --text-body-l--line-height: 1.65;
+
+  --text-content-m: clamp(1rem, 0.95rem + 0.3vw, 1.1875rem);
+  --text-content-m--line-height: 1.55;
+
+  --text-content-l: clamp(1.25rem, 1.1rem + 0.6vw, 1.625rem);
+  --text-content-l--line-height: 1.4;
+
+  --text-content-xl: clamp(1.5rem, 1.2rem + 1vw, 2rem);
+  --text-content-xl--line-height: 1.25;
+
+  --text-section-l: clamp(1.625rem, 1.35rem + 1.2vw, 2.5rem);
+  --text-section-l--line-height: 1.15;
+  --text-section-l--letter-spacing: -0.02em;
+
+  --text-section-xl: clamp(2rem, 1.5rem + 2.2vw, 3.5rem);
+  --text-section-xl--line-height: 1.05;
+  --text-section-xl--letter-spacing: -0.025em;
+
+  --text-hero-l: clamp(2.25rem, 1.6rem + 3vw, 3.75rem);
+  --text-hero-l--line-height: 1.02;
+  --text-hero-l--letter-spacing: -0.03em;
+
+  --text-hero-xl: clamp(2.75rem, 1.8rem + 4.5vw, 5rem);
+  --text-hero-xl--line-height: 0.98;
+  --text-hero-xl--letter-spacing: -0.035em;
+
+  --text-hero-xxl: clamp(3.25rem, 2rem + 6vw, 6.75rem);
+  --text-hero-xxl--line-height: 0.95;
+  --text-hero-xxl--letter-spacing: -0.04em;
+
+  --text-mono-m: clamp(0.875rem, 0.85rem + 0.2vw, 1rem);
+
+  /* === Fonts === */
+  --font-display: "Fraunces", "Georgia", serif;
+  --font-body: "Manrope", system-ui, sans-serif;
+  --font-mono: "JetBrains Mono", ui-monospace, monospace;
+
+  /* === Radii === */
+  --radius-pill: 999px;
+  --radius-card: 18px;
+  --radius-card-lg: 28px;
+}
+
+/* === Base === */
+@layer base {
+  html {
+    scroll-behavior: smooth;
+    -webkit-text-size-adjust: 100%;
+  }
+  body {
+    background-color: var(--color-bone);
+    color: var(--color-ink);
+    font-family: var(--font-body);
+    font-feature-settings: "ss01", "cv11";
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+  ::selection {
+    background-color: var(--color-ink);
+    color: var(--color-bone);
+  }
+  h1, h2, h3, h4 {
+    font-family: var(--font-display);
+    font-weight: 500;
+  }
+}
+
+/* === Reusable patterns === */
+@layer components {
+  .alf-grain {
+    position: relative;
+    isolation: isolate;
+  }
+  .alf-grain::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+    z-index: 0;
+    opacity: 0.06;
+    mix-blend-mode: multiply;
+    background-image: url("data:image/svg+xml;utf8,<svg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='2' stitchTiles='stitch'/><feColorMatrix values='0 0 0 0 0  0 0 0 0 0  0 0 0 0 0  0 0 0 0.6 0'/></filter><rect width='100%25' height='100%25' filter='url(%23n)'/></svg>");
+  }
+
+  .alf-divider {
+    height: 1px;
+    background: linear-gradient(to right, transparent, var(--color-line), transparent);
+  }
+
+  /* underline reveal for nav */
+  .alf-link {
+    position: relative;
+    transition: color 0.25s ease;
+  }
+  .alf-link::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    bottom: -4px;
+    width: 100%;
+    height: 1px;
+    background: currentColor;
+    transform: scaleX(0);
+    transform-origin: right;
+    transition: transform 0.4s cubic-bezier(0.65, 0, 0.35, 1);
+  }
+  .alf-link:hover::after,
+  .alf-link[data-active="true"]::after {
+    transform: scaleX(1);
+    transform-origin: left;
+  }
+
+  /* button bases */
+  .alf-btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+    padding: 0.95rem 1.5rem;
+    border-radius: var(--radius-pill);
+    font-family: var(--font-body);
+    font-weight: 600;
+    font-size: 0.9375rem;
+    letter-spacing: -0.005em;
+    line-height: 1;
+    transition: transform 0.2s ease, background 0.25s ease, color 0.25s ease, box-shadow 0.25s ease;
+    will-change: transform;
+    cursor: pointer;
+  }
+  .alf-btn:active { transform: translateY(1px); }
+
+  .alf-btn-primary {
+    background: var(--color-ink);
+    color: var(--color-bone);
+  }
+  .alf-btn-primary:hover {
+    background: var(--color-primary);
+    box-shadow: 0 12px 32px -16px var(--color-primary-deep);
+  }
+
+  .alf-btn-accent {
+    background: var(--color-accent);
+    color: var(--color-bone);
+  }
+  .alf-btn-accent:hover {
+    background: var(--color-accent-bright);
+    box-shadow: 0 14px 34px -16px var(--color-accent-deep);
+  }
+
+  .alf-btn-ghost {
+    background: transparent;
+    color: var(--color-ink);
+    border: 1px solid var(--color-line);
+  }
+  .alf-btn-ghost:hover {
+    background: var(--color-bone-soft);
+    border-color: var(--color-ink);
+  }
+
+  /* form fields */
+  .alf-input {
+    width: 100%;
+    background: var(--color-paper);
+    border: 1px solid var(--color-line);
+    border-radius: 12px;
+    padding: 0.85rem 1rem;
+    font-family: var(--font-body);
+    font-size: 0.95rem;
+    color: var(--color-ink);
+    transition: border-color 0.2s ease, box-shadow 0.2s ease;
+  }
+  .alf-input::placeholder { color: var(--color-muted); }
+  .alf-input:focus {
+    outline: none;
+    border-color: var(--color-primary);
+    box-shadow: 0 0 0 4px var(--color-primary-soft);
+  }
+
+  /* eyebrow tag */
+  .alf-eyebrow {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    font-family: var(--font-body);
+    font-size: var(--text-eyebrow);
+    text-transform: uppercase;
+    letter-spacing: 0.18em;
+    color: var(--color-muted);
+    font-weight: 600;
+  }
+  .alf-eyebrow::before {
+    content: "";
+    display: inline-block;
+    width: 28px;
+    height: 1px;
+    background: currentColor;
+    opacity: 0.6;
+  }
+
+  /* marquee */
+  @keyframes alf-scroll {
+    from { transform: translateX(0); }
+    to { transform: translateX(-50%); }
+  }
+  .alf-marquee {
+    animation: alf-scroll 38s linear infinite;
+  }
+  .alf-marquee:hover { animation-play-state: paused; }
+
+  /* stagger reveal */
+  @keyframes alf-rise {
+    from { opacity: 0; transform: translateY(18px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+  [data-rise] {
+    opacity: 0;
+    animation: alf-rise 0.8s cubic-bezier(0.22, 1, 0.36, 1) forwards;
+  }
+}

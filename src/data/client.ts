@@ -1,27 +1,27 @@
 // ===== SITE CONSTANTS =====
 export const SITE = {
-	title: "Code Stitch Web Designs",
-	tagline: "Professional Web Design Services",
-	description: "Code Stitch Web Designs offers top-tier web design and development services to meet all your project needs. Start exploring and contact our team for superior quality and reliability.",
-	url: "https://www.yourwebsite.com",
-	author: "Code Stitch Team",
+	title: "Alberta Leasing & Financing",
+	tagline: "Drive More. Pay Less.",
+	description: "Fast vehicle financing, refinancing, and commercial leasing across Alberta. Get pre-approved in minutes — competitive rates, all credit types welcome.",
+	url: "https://www.albertaleasefinance.ca",
+	author: "Alberta Leasing & Financing",
 	locale: "en",
 };
 
 // ===== BUSINESS INFO =====
 export const BUSINESS = {
 	name: SITE.title,
-	email: "help@codestitch.app",
-	phoneForTel: "555-779-4407",
-	phoneFormatted: "(555) 779-4407",
+	email: "hello@albertaleasefinance.ca",
+	phoneForTel: "587-555-0142",
+	phoneFormatted: "(587) 555-0142",
 	logo: "/assets/favicons/favicon.svg",
 	address: {
-		lineOne: "First Address Line",
-		lineTwo: "Second Address Line",
-		city: "Denver",
-		state: "CO",
-		zip: "80206",
-		mapLink: "https://goo.gl/maps/UAQn4vuGDiwv7DV39",
+		lineOne: "Suite 410, 633 6 Ave SW",
+		lineTwo: "",
+		city: "Calgary",
+		state: "AB",
+		zip: "T2P 2Y5",
+		mapLink: "https://maps.google.com",
 	},
 	socials: {
 		facebook: "https://www.facebook.com/",
@@ -38,5 +38,5 @@ export const SEO = {
 // ===== OPEN GRAPH DEFAULTS =====
 export const OG = {
 	locale: "en_US",
-	image: "/assets/social.jpg", // Default fallback social image located in public/
+	image: "/assets/social.jpg",
 };

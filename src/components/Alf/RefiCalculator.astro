@@ -1,0 +1,320 @@
+---
+// Calculator section — Refinance Savings
+---
+
+<section
+  id="calculator"
+  aria-labelledby="calc-title"
+  class="relative bg-ink text-bone py-20 lg:py-28 overflow-hidden"
+>
+  <!-- Decorative gradient mesh -->
+  <div
+    aria-hidden="true"
+    class="absolute -top-32 -left-20 w-[36rem] h-[36rem] rounded-full bg-primary/30 blur-[120px] pointer-events-none"
+  >
+  </div>
+  <div
+    aria-hidden="true"
+    class="absolute -bottom-40 -right-20 w-[40rem] h-[40rem] rounded-full bg-accent/15 blur-[140px] pointer-events-none"
+  >
+  </div>
+
+  <div
+    aria-hidden="true"
+    class="absolute inset-0 opacity-[0.08] pointer-events-none"
+    style="background-image: radial-gradient(circle, rgba(248,244,237,0.6) 1px, transparent 1px); background-size: 40px 40px;"
+  >
+  </div>
+
+  <div class="relative mx-auto max-w-[88rem] px-5 lg:px-10">
+    <div class="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-16 items-start">
+      <!-- LEFT: header -->
+      <div class="lg:col-span-5">
+        <p class="alf-eyebrow text-bone/70">Refinance Savings Calculator</p>
+        <h2
+          id="calc-title"
+          class="mt-5 font-display text-section-xl text-bone leading-[1.05]"
+        >
+          See how much you<br />
+          <span class="italic text-accent-bright">could save.</span>
+        </h2>
+        <p class="mt-6 text-body-l text-bone/75 max-w-[26rem]">
+          Most Alberta drivers save <strong class="text-bone">$80–$220</strong> a month
+          when they refinance with us. Plug in your numbers below — no commitment,
+          no credit check.
+        </p>
+
+        <!-- Stats strip -->
+        <dl class="mt-10 grid grid-cols-3 gap-4 max-w-[26rem]">
+          {
+            [
+              { v: "$2.4M", l: "Saved by clients" },
+              { v: "4.99%", l: "Rates from" },
+              { v: "24h", l: "Avg approval" },
+            ].map((s) => (
+              <div class="border-l border-bone/15 pl-4">
+                <dt class="text-[0.7rem] uppercase tracking-[0.2em] text-bone/55 font-medium">
+                  {s.l}
+                </dt>
+                <dd class="mt-1 font-display text-content-l text-bone">
+                  {s.v}
+                </dd>
+              </div>
+            ))
+          }
+        </dl>
+      </div>
+
+      <!-- RIGHT: calculator -->
+      <div class="lg:col-span-7">
+        <div
+          class="relative bg-bone text-ink rounded-[2rem] p-7 sm:p-9 lg:p-10 shadow-[0_40px_120px_-30px_rgba(0,0,0,0.5)]"
+        >
+          <!-- offset accent ring -->
+          <div
+            aria-hidden="true"
+            class="absolute -top-4 -right-4 w-20 h-20 rounded-full border border-accent/40"
+          >
+          </div>
+          <div
+            aria-hidden="true"
+            class="absolute -top-2 -right-2 w-16 h-16 rounded-full bg-accent text-bone grid place-items-center font-display text-content-l italic"
+          >
+            $
+          </div>
+
+          <form
+            data-alf-calc
+            class="grid grid-cols-1 sm:grid-cols-2 gap-5"
+            novalidate
+          >
+            <div>
+              <label
+                for="calc-balance"
+                class="block text-[0.75rem] uppercase tracking-[0.18em] text-muted font-semibold mb-2"
+              >
+                Current Loan Balance
+              </label>
+              <div class="relative">
+                <span
+                  class="absolute left-4 top-1/2 -translate-y-1/2 text-muted font-medium pointer-events-none"
+                  >$</span
+                >
+                <input
+                  id="calc-balance"
+                  name="balance"
+                  type="number"
+                  inputmode="numeric"
+                  min="0"
+                  step="100"
+                  value="22000"
+                  class="alf-input pl-8 font-mono text-mono-m"
+                  data-calc-input
+                />
+              </div>
+            </div>
+
+            <div>
+              <label
+                for="calc-rate"
+                class="block text-[0.75rem] uppercase tracking-[0.18em] text-muted font-semibold mb-2"
+              >
+                Current Interest Rate
+              </label>
+              <div class="relative">
+                <input
+                  id="calc-rate"
+                  name="rate"
+                  type="number"
+                  inputmode="decimal"
+                  min="0"
+                  step="0.05"
+                  value="9.49"
+                  class="alf-input pr-9 font-mono text-mono-m"
+                  data-calc-input
+                />
+                <span
+                  class="absolute right-4 top-1/2 -translate-y-1/2 text-muted font-medium pointer-events-none"
+                  >%</span
+                >
+              </div>
+            </div>
+
+            <div>
+              <label
+                for="calc-payment"
+                class="block text-[0.75rem] uppercase tracking-[0.18em] text-muted font-semibold mb-2"
+              >
+                Monthly Payment
+              </label>
+              <div class="relative">
+                <span
+                  class="absolute left-4 top-1/2 -translate-y-1/2 text-muted font-medium pointer-events-none"
+                  >$</span
+                >
+                <input
+                  id="calc-payment"
+                  name="payment"
+                  type="number"
+                  inputmode="numeric"
+                  min="0"
+                  step="10"
+                  value="520"
+                  class="alf-input pl-8 font-mono text-mono-m"
+                  data-calc-input
+                />
+              </div>
+            </div>
+
+            <div>
+              <label
+                for="calc-term"
+                class="block text-[0.75rem] uppercase tracking-[0.18em] text-muted font-semibold mb-2"
+              >
+                Loan Term Remaining
+              </label>
+              <div class="relative">
+                <input
+                  id="calc-term"
+                  name="term"
+                  type="number"
+                  inputmode="numeric"
+                  min="1"
+                  max="120"
+                  step="1"
+                  value="48"
+                  class="alf-input pr-16 font-mono text-mono-m"
+                  data-calc-input
+                />
+                <span
+                  class="absolute right-4 top-1/2 -translate-y-1/2 text-muted text-[0.8rem] pointer-events-none"
+                  >months</span
+                >
+              </div>
+            </div>
+
+            <!-- Result panel -->
+            <div
+              class="sm:col-span-2 mt-3 grid grid-cols-1 sm:grid-cols-3 rounded-2xl bg-ink text-bone overflow-hidden"
+            >
+              <div class="p-5 sm:p-6 sm:border-r border-bone/10">
+                <p
+                  class="text-[0.7rem] uppercase tracking-[0.18em] text-bone/60 font-semibold"
+                >
+                  Estimated Monthly Savings
+                </p>
+                <p
+                  class="mt-2 font-display text-[clamp(1.75rem,3.5vw,2.75rem)] leading-none text-accent-bright"
+                  data-calc-out="monthly"
+                >
+                  $0
+                </p>
+              </div>
+              <div class="p-5 sm:p-6 sm:border-r border-bone/10">
+                <p
+                  class="text-[0.7rem] uppercase tracking-[0.18em] text-bone/60 font-semibold"
+                >
+                  Total Savings
+                </p>
+                <p
+                  class="mt-2 font-display text-content-xl text-bone leading-none"
+                  data-calc-out="total"
+                >
+                  $0
+                </p>
+              </div>
+              <div class="p-5 sm:p-6">
+                <p
+                  class="text-[0.7rem] uppercase tracking-[0.18em] text-bone/60 font-semibold"
+                >
+                  Estimated New Rate
+                </p>
+                <p
+                  class="mt-2 font-display text-content-xl text-bone leading-none font-mono"
+                  data-calc-out="newrate"
+                >
+                  —
+                </p>
+              </div>
+            </div>
+
+            <div
+              class="sm:col-span-2 flex flex-col sm:flex-row gap-3 sm:items-center sm:justify-between mt-2"
+            >
+              <p class="text-[0.75rem] text-muted">
+                * Estimate based on a 5.99% target rate. Actual rate depends on credit profile &amp; lender.
+              </p>
+              <a href="#lead-form" class="alf-btn alf-btn-accent">
+                Get My New Rate
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                  <path d="M5 12h14M13 5l7 7-7 7"/>
+                </svg>
+              </a>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<script>
+  function initRefiCalc() {
+    const form = document.querySelector<HTMLFormElement>("[data-alf-calc]");
+    if (!form) return;
+
+    const fmt = (n: number) =>
+      n.toLocaleString("en-CA", {
+        style: "currency",
+        currency: "CAD",
+        maximumFractionDigits: 0,
+      });
+
+    const monthlyOut = form.querySelector<HTMLElement>('[data-calc-out="monthly"]');
+    const totalOut = form.querySelector<HTMLElement>('[data-calc-out="total"]');
+    const newRateOut = form.querySelector<HTMLElement>('[data-calc-out="newrate"]');
+
+    const NEW_RATE = 5.99; // assumed offer rate
+
+    function pmt(balance: number, annualRate: number, months: number) {
+      const r = annualRate / 100 / 12;
+      if (r === 0) return balance / months;
+      return (balance * (r * Math.pow(1 + r, months))) / (Math.pow(1 + r, months) - 1);
+    }
+
+    function recalc() {
+      const balance = Math.max(0, +(form.elements.namedItem("balance") as HTMLInputElement).value || 0);
+      const rate = Math.max(0, +(form.elements.namedItem("rate") as HTMLInputElement).value || 0);
+      const payment = Math.max(0, +(form.elements.namedItem("payment") as HTMLInputElement).value || 0);
+      const term = Math.max(1, Math.min(120, +(form.elements.namedItem("term") as HTMLInputElement).value || 0));
+
+      if (!balance || !rate || !payment || !term) {
+        if (monthlyOut) monthlyOut.textContent = "$0";
+        if (totalOut) totalOut.textContent = "$0";
+        if (newRateOut) newRateOut.textContent = "—";
+        return;
+      }
+
+      const targetRate = rate > NEW_RATE ? NEW_RATE : Math.max(0.99, rate - 1.5);
+      const newPayment = pmt(balance, targetRate, term);
+      const monthlySavings = Math.max(0, payment - newPayment);
+      const totalSavings = monthlySavings * term;
+
+      if (monthlyOut) monthlyOut.textContent = fmt(monthlySavings) + "/mo";
+      if (totalOut) totalOut.textContent = fmt(totalSavings);
+      if (newRateOut) newRateOut.textContent = targetRate.toFixed(2) + "%";
+    }
+
+    form.querySelectorAll<HTMLInputElement>("[data-calc-input]").forEach((el) => {
+      el.addEventListener("input", recalc);
+    });
+    form.addEventListener("submit", (e) => {
+      e.preventDefault();
+      window.location.hash = "#lead-form";
+    });
+
+    recalc();
+  }
+
+  document.addEventListener("astro:page-load", initRefiCalc);
+</script>

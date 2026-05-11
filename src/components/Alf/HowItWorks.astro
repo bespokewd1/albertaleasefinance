@@ -1,0 +1,135 @@
+---
+const steps = [
+  {
+    n: "01",
+    title: "Apply Online",
+    desc: "60-second form. No credit pull. Tell us what you need and where you stand.",
+    time: "~2 min",
+  },
+  {
+    n: "02",
+    title: "We Review Your Application",
+    desc: "Our Alberta-based advisors verify details and shop your file across our lender network.",
+    time: "Same day",
+  },
+  {
+    n: "03",
+    title: "Get Matched With Financing Options",
+    desc: "Compare side-by-side offers — rates, terms, monthly payments — pick your favourite.",
+    time: "Within 24h",
+  },
+  {
+    n: "04",
+    title: "Drive Away With Better Payments",
+    desc: "Sign digitally, pick up your vehicle, or finalize your refinance. Done.",
+    time: "1–3 days",
+  },
+];
+---
+
+<section
+  id="how-it-works"
+  aria-labelledby="how-title"
+  class="relative bg-bone-soft py-20 lg:py-28"
+>
+  <div class="mx-auto max-w-[88rem] px-5 lg:px-10">
+    <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-end mb-14">
+      <div class="lg:col-span-7">
+        <p class="alf-eyebrow">How It Works</p>
+        <h2
+          id="how-title"
+          class="mt-5 font-display text-section-xl text-ink leading-[1.05]"
+        >
+          From application to ignition —
+          <span class="italic text-primary">in four steps.</span>
+        </h2>
+      </div>
+      <div class="lg:col-span-4 lg:col-start-9">
+        <p class="text-body-l text-graphite max-w-[26rem]">
+          A clear, no-runaround process built for busy Albertans. Most clients
+          finish from apply to signed in under three days.
+        </p>
+      </div>
+    </div>
+
+    <!-- Timeline -->
+    <ol class="relative grid grid-cols-1 lg:grid-cols-4 gap-8 lg:gap-0">
+      <!-- Connector line desktop -->
+      <div
+        aria-hidden="true"
+        class="hidden lg:block absolute left-0 right-0 top-7 h-px bg-gradient-to-r from-transparent via-ink/25 to-transparent"
+      >
+      </div>
+
+      {
+        steps.map((s, i) => (
+          <li class="relative lg:px-5 first:lg:pl-0 last:lg:pr-0">
+            <!-- node -->
+            <div class="flex items-center gap-4 lg:block">
+              <div class="relative shrink-0">
+                <span
+                  class:list={[
+                    "relative grid place-items-center w-14 h-14 rounded-full font-mono text-[0.875rem] font-semibold tracking-tight z-10",
+                    i === 0
+                      ? "bg-accent text-bone"
+                      : "bg-paper text-ink border border-ink/20",
+                  ]}
+                >
+                  {s.n}
+                </span>
+                {i < steps.length - 1 && (
+                  <span
+                    aria-hidden="true"
+                    class="absolute left-1/2 top-full w-px h-12 bg-ink/15 -translate-x-1/2 lg:hidden"
+                  />
+                )}
+              </div>
+              <span class="text-[0.7rem] uppercase tracking-[0.22em] font-semibold text-muted lg:hidden">
+                {s.time}
+              </span>
+            </div>
+
+            <div class="mt-5 lg:mt-7">
+              <span class="hidden lg:inline-flex text-[0.7rem] uppercase tracking-[0.22em] font-semibold text-muted mb-3">
+                {s.time}
+              </span>
+              <h3 class="font-display text-content-l text-ink leading-tight max-w-[16rem]">
+                {s.title}
+              </h3>
+              <p class="mt-2 text-body-m text-graphite max-w-[18rem]">
+                {s.desc}
+              </p>
+            </div>
+          </li>
+        ))
+      }
+    </ol>
+
+    <!-- CTA strip -->
+    <div
+      class="mt-16 lg:mt-20 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-5 p-6 lg:p-8 rounded-[1.5rem] bg-paper border border-line-soft"
+    >
+      <div class="flex items-center gap-4">
+        <span
+          class="grid place-items-center w-12 h-12 rounded-full bg-success-soft text-success"
+        >
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <polyline points="20 6 9 17 4 12"/>
+          </svg>
+        </span>
+        <div>
+          <p class="font-display text-content-m text-ink leading-tight">
+            Ready to start? It takes <em class="font-semibold not-italic text-primary">about a minute.</em>
+          </p>
+          <p class="text-body-s text-muted mt-1">No credit pull. No commitment.</p>
+        </div>
+      </div>
+      <a href="#lead-form" class="alf-btn alf-btn-primary">
+        Start My Application
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+          <path d="M5 12h14M13 5l7 7-7 7"/>
+        </svg>
+      </a>
+    </div>
+  </div>
+</section>

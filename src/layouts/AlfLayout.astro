@@ -1,0 +1,54 @@
+---
+import { Font } from "astro:assets";
+import { ClientRouter } from "astro:transitions";
+import type { GetImageResult } from "astro";
+import "@/styles/global.css";
+
+import AlfHeader from "@/components/Alf/AlfHeader.astro";
+import AlfFooter from "@/components/Alf/AlfFooter.astro";
+import Meta from "@/components/Meta/Meta.astro";
+
+import { SITE } from "@/data/client";
+
+type HeroImage = GetImageResult | ImageMetadata;
+
+interface Props {
+  title: string;
+  description: string;
+  heroImage?: HeroImage;
+}
+
+const { description, title, heroImage } = Astro.props as Props;
+---
+
+<html lang={SITE.locale} class="bg-bone">
+  <head>
+    <ClientRouter />
+
+    <Meta title={title} description={description} heroImage={heroImage}>
+      <slot name="schema" slot="schema" />
+    </Meta>
+
+    <Font cssVariable="--font-display" preload />
+    <Font cssVariable="--font-body" preload />
+    <Font cssVariable="--font-mono" />
+
+    {heroImage && <link rel="preload" href={heroImage.src} as="image" />}
+  </head>
+  <body class="bg-bone text-ink font-body antialiased">
+    <a
+      class="sr-only focus:not-sr-only focus:fixed focus:top-4 focus:left-4 focus:z-[9999] focus:bg-ink focus:text-bone focus:px-4 focus:py-2 focus:rounded-full"
+      href="#main"
+    >
+      Skip to main content
+    </a>
+
+    <AlfHeader />
+
+    <main id="main" class="overflow-clip">
+      <slot />
+    </main>
+
+    <AlfFooter />
+  </body>
+</html>

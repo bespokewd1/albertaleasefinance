@@ -5,32 +5,28 @@
     "children": []
   },
   {
-    "key": "About Us",
+    "key": "Vehicle Financing",
+    "url": "/vehicle-financing/",
+    "children": []
+  },
+  {
+    "key": "Refinance",
+    "url": "/refinance/",
+    "children": []
+  },
+  {
+    "key": "Commercial Financing",
+    "url": "/commercial-financing/",
+    "children": []
+  },
+  {
+    "key": "About",
     "url": "/about/",
     "children": []
   },
   {
-    "key": "Projects",
-    "url": "/projects/",
-    "children": [
-      {
-        "key": "Project 1",
-        "url": "/projects/project-1/"
-      },
-      {
-        "key": "Project 2",
-        "url": "/projects/project-2/"
-      }
-    ]
-  },
-  {
-    "key": "Reviews",
-    "url": "/reviews/",
+    "key": "Contact",
+    "url": "/contact/",
     "children": []
-  },
-  {
-    "key": "Blog",
-    "url": "/blog/",
-    "children": []     
   }
 ]

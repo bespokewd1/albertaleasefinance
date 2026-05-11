@@ -1,0 +1,166 @@
+---
+import { Picture } from "astro:assets";
+import advisorImg from "@/assets/images/hero/hero.jpg";
+
+const reasons = [
+  {
+    title: "Personalized Solutions",
+    desc: "No template offers — every plan is built around your goals, income, and credit picture.",
+    icon: "user",
+  },
+  {
+    title: "Fast Response Times",
+    desc: "Real humans respond in under an hour during business hours. Most files close in days.",
+    icon: "zap",
+  },
+  {
+    title: "Competitive Lender Network",
+    desc: "We shop your file across 20+ Alberta banks, credit unions, and specialist auto lenders.",
+    icon: "shield",
+  },
+  {
+    title: "Flexible Terms",
+    desc: "From 24 to 84 months, weekly or monthly, balloon options — structured to your cashflow.",
+    icon: "sliders",
+  },
+  {
+    title: "Friendly Local Support",
+    desc: "Calgary-based advisors who actually pick up the phone. No call-centre runaround.",
+    icon: "phone",
+  },
+  {
+    title: "All Credit Situations",
+    desc: "First-time buyer, rebuilding credit, new to Canada — we've placed thousands like you.",
+    icon: "heart",
+  },
+];
+
+const icons: Record<string, string> = {
+  user: 'M16 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2 M12 7a4 4 0 1 1-8 0 4 4 0 0 1 8 0',
+  zap: 'M13 2L3 14h9l-1 8 10-12h-9l1-8z',
+  shield: 'M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z',
+  sliders: 'M4 21v-7 M4 10V3 M12 21v-9 M12 8V3 M20 21v-5 M20 12V3 M1 14h6 M9 8h6 M17 16h6',
+  phone: 'M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z',
+  heart: 'M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z',
+};
+---
+
+<section
+  id="why-us"
+  aria-labelledby="why-title"
+  class="relative bg-bone py-20 lg:py-28 overflow-hidden"
+>
+  <div class="mx-auto max-w-[88rem] px-5 lg:px-10">
+    <div class="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-14 items-center">
+      <!-- LEFT: image -->
+      <div class="lg:col-span-5">
+        <div class="relative">
+          <!-- decorative offset block -->
+          <div
+            aria-hidden="true"
+            class="absolute -top-4 -left-4 w-32 h-32 rounded-[1.5rem] bg-accent hidden sm:block"
+          >
+          </div>
+
+          <div
+            class="relative rounded-[1.75rem] overflow-hidden aspect-[4/5] sm:aspect-[5/6]"
+          >
+            <Picture
+              src={advisorImg}
+              alt="Alberta Leasing advisor walking a client through their financing options"
+              formats={["avif", "webp"]}
+              widths={[400, 600, 800, 1000]}
+              sizes="(min-width: 1024px) 40vw, 90vw"
+              class="w-full h-full object-cover"
+            />
+            <div
+              class="absolute inset-0 bg-gradient-to-t from-ink/40 via-transparent to-transparent"
+            >
+            </div>
+          </div>
+
+          <!-- Floating testimonial badge -->
+          <div
+            class="absolute -bottom-6 -right-2 sm:-right-6 max-w-[18rem] bg-paper rounded-2xl p-5 shadow-[0_25px_60px_-20px_rgba(13,20,23,0.35)] border border-line-soft"
+          >
+            <div class="flex items-center gap-1 mb-3">
+              {
+                Array.from({ length: 5 }).map(() => (
+                  <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor" class="text-gold" aria-hidden="true">
+                    <polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26"/>
+                  </svg>
+                ))
+              }
+            </div>
+            <p class="font-display text-[0.95rem] text-ink leading-snug italic">
+              &ldquo;Saved $164 a month on my truck loan. Whole thing took two
+              days.&rdquo;
+            </p>
+            <p class="mt-3 text-[0.75rem] uppercase tracking-[0.18em] text-muted font-semibold">
+              — Marcus T. · Red Deer
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <!-- RIGHT: content -->
+      <div class="lg:col-span-7">
+        <p class="alf-eyebrow">Why Choose Us</p>
+        <h2
+          id="why-title"
+          class="mt-5 font-display text-section-xl text-ink leading-[1.05] max-w-[20ch]"
+        >
+          Why Alberta drivers choose
+          <span class="italic text-primary">us first.</span>
+        </h2>
+        <p class="mt-5 text-body-l text-graphite max-w-[34rem]">
+          We&rsquo;re local, independent, and obsessed with getting you a better
+          payment than you came in with. Here&rsquo;s what that looks like.
+        </p>
+
+        <ul class="mt-10 grid grid-cols-1 sm:grid-cols-2 gap-x-8 gap-y-7">
+          {
+            reasons.map((r) => (
+              <li class="flex gap-4">
+                <span class="shrink-0 grid place-items-center w-11 h-11 rounded-xl bg-primary-soft text-primary">
+                  <svg
+                    width="20"
+                    height="20"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    stroke-width="1.8"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    aria-hidden="true"
+                    set:html={`<path d="${icons[r.icon]}"/>`}
+                  />
+                </span>
+                <div>
+                  <h3 class="font-display text-content-m text-ink leading-tight">
+                    {r.title}
+                  </h3>
+                  <p class="mt-1.5 text-body-m text-graphite leading-snug">
+                    {r.desc}
+                  </p>
+                </div>
+              </li>
+            ))
+          }
+        </ul>
+
+        <div class="mt-10 flex flex-wrap gap-3">
+          <a href="/contact/" class="alf-btn alf-btn-primary">
+            Speak With An Advisor
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <path d="M5 12h14M13 5l7 7-7 7"/>
+            </svg>
+          </a>
+          <a href="#lead-form" class="alf-btn alf-btn-ghost">
+            Apply Online Instead
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

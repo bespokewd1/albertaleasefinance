@@ -30,6 +30,30 @@ export default defineConfig({
           weights: [400, 700, 900],
           styles: ["normal"],
       },
+      {
+          provider: fontProviders.google(),
+          name: "Fraunces",
+          cssVariable: "--font-display",
+          fallbacks: ["Georgia", "serif"],
+          weights: [400, 500, 600, 700, 900],
+          styles: ["normal", "italic"],
+      },
+      {
+          provider: fontProviders.google(),
+          name: "Manrope",
+          cssVariable: "--font-body",
+          fallbacks: ["system-ui", "sans-serif"],
+          weights: [300, 400, 500, 600, 700, 800],
+          styles: ["normal"],
+      },
+      {
+          provider: fontProviders.google(),
+          name: "JetBrains Mono",
+          cssVariable: "--font-mono",
+          fallbacks: ["ui-monospace", "monospace"],
+          weights: [400, 500, 700],
+          styles: ["normal"],
+      },
 	],
 
   vite: {

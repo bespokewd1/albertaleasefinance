@@ -1,0 +1,191 @@
+---
+import { Picture } from "astro:assets";
+import vehicleImg from "@/assets/images/projects/port1.jpg";
+import refinanceImg from "@/assets/images/projects/port2.jpg";
+import commercialImg from "@/assets/images/projects/port3.jpg";
+
+const services = [
+  {
+    eyebrow: "01 / Drive",
+    title: "Vehicle Financing",
+    image: vehicleImg,
+    blurb:
+      "New or pre-owned. Quick approvals, flexible terms, payment plans that fit your monthly budget.",
+    bullets: ["New vehicles", "Used vehicles", "Flexible payment plans"],
+    cta: "Learn More",
+    href: "/vehicle-financing/",
+    theme: "light" as const,
+  },
+  {
+    eyebrow: "02 / Save",
+    title: "Auto Refinancing",
+    image: refinanceImg,
+    blurb:
+      "Already paying too much? Reset your loan with better rates and roll debt into one easy monthly payment.",
+    bullets: [
+      "Lower monthly payments",
+      "Reduce interest rates",
+      "Consolidate debt",
+    ],
+    cta: "Refinance Now",
+    href: "/refinance/",
+    theme: "dark" as const,
+  },
+  {
+    eyebrow: "03 / Build",
+    title: "Commercial Leasing",
+    image: commercialImg,
+    blurb:
+      "Fleet, equipment, and business lending tailored for Alberta operators of every size.",
+    bullets: [
+      "Fleet vehicles",
+      "Equipment financing",
+      "Business lending solutions",
+    ],
+    cta: "Explore Commercial",
+    href: "/commercial-financing/",
+    theme: "light" as const,
+  },
+];
+---
+
+<section
+  id="services"
+  aria-labelledby="services-title"
+  class="relative bg-bone py-20 lg:py-28"
+>
+  <div class="mx-auto max-w-[88rem] px-5 lg:px-10">
+    <!-- Section header -->
+    <div
+      class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-end mb-14 lg:mb-20"
+    >
+      <div class="lg:col-span-7">
+        <p class="alf-eyebrow">Our Financing Solutions</p>
+        <h2
+          id="services-title"
+          class="mt-5 font-display text-section-xl text-ink max-w-[20ch]"
+        >
+          Three roads. One destination —
+          <span class="italic text-primary">a smarter loan.</span>
+        </h2>
+      </div>
+      <div class="lg:col-span-4 lg:col-start-9">
+        <p class="text-body-l text-graphite max-w-[28rem]">
+          Whether you&rsquo;re upgrading, refinancing, or expanding the
+          business — we match you with the right lender, fast.
+        </p>
+      </div>
+    </div>
+
+    <!-- Cards -->
+    <div class="grid grid-cols-1 lg:grid-cols-3 gap-5 lg:gap-7">
+      {
+        services.map((s, i) => (
+          <article
+            class:list={[
+              "group relative overflow-hidden rounded-[1.75rem] border flex flex-col transition-transform duration-500 hover:-translate-y-1",
+              s.theme === "dark"
+                ? "bg-ink text-bone border-ink lg:-mt-6 lg:mb-6"
+                : "bg-paper text-ink border-line-soft",
+            ]}
+          >
+            <div class="relative aspect-[4/3] overflow-hidden">
+              <Picture
+                src={s.image}
+                alt=""
+                formats={["avif", "webp"]}
+                widths={[400, 600, 800]}
+                sizes="(min-width: 1024px) 28vw, 100vw"
+                class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
+              />
+              <div
+                class:list={[
+                  "absolute inset-0",
+                  s.theme === "dark"
+                    ? "bg-gradient-to-t from-ink via-ink/40 to-transparent"
+                    : "bg-gradient-to-t from-paper/95 via-paper/10 to-transparent",
+                ]}
+              />
+              <span
+                class:list={[
+                  "absolute top-5 left-5 text-[0.7rem] uppercase tracking-[0.22em] font-semibold px-3 py-1.5 rounded-full backdrop-blur-md",
+                  s.theme === "dark"
+                    ? "bg-bone/15 text-bone"
+                    : "bg-ink/85 text-bone",
+                ]}
+              >
+                {s.eyebrow}
+              </span>
+            </div>
+
+            <div class="flex flex-col flex-1 p-7 lg:p-8">
+              <h3
+                class:list={[
+                  "font-display text-content-xl leading-tight",
+                  s.theme === "dark" ? "text-bone" : "text-ink",
+                ]}
+              >
+                {s.title}
+              </h3>
+              <p
+                class:list={[
+                  "mt-3 text-body-m",
+                  s.theme === "dark" ? "text-bone/70" : "text-graphite",
+                ]}
+              >
+                {s.blurb}
+              </p>
+
+              <ul class="mt-6 space-y-2.5">
+                {s.bullets.map((b) => (
+                  <li class="flex items-start gap-3 text-body-m">
+                    <span
+                      class:list={[
+                        "mt-1.5 inline-block w-1.5 h-1.5 rounded-full shrink-0",
+                        s.theme === "dark" ? "bg-accent-bright" : "bg-primary",
+                      ]}
+                    />
+                    <span
+                      class:list={[
+                        s.theme === "dark" ? "text-bone/85" : "text-ink/85",
+                      ]}
+                    >
+                      {b}
+                    </span>
+                  </li>
+                ))}
+              </ul>
+
+              <a
+                href={s.href}
+                class:list={[
+                  "mt-8 inline-flex items-center gap-2 font-semibold text-[0.9375rem] self-start group/cta",
+                  s.theme === "dark"
+                    ? "text-accent-bright hover:text-bone"
+                    : "text-ink hover:text-primary",
+                ]}
+              >
+                {s.cta}
+                <span class="inline-flex items-center justify-center w-9 h-9 rounded-full border border-current transition-transform duration-300 group-hover/cta:translate-x-1">
+                  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                    <path d="M5 12h14M13 5l7 7-7 7" />
+                  </svg>
+                </span>
+              </a>
+            </div>
+
+            <span
+              aria-hidden="true"
+              class:list={[
+                "absolute top-5 right-5 font-mono text-[0.7rem] tracking-tight opacity-50",
+                s.theme === "dark" ? "text-bone" : "text-muted",
+              ]}
+            >
+              0{i + 1} / 03
+            </span>
+          </article>
+        ))
+      }
+    </div>
+  </div>
+</section>

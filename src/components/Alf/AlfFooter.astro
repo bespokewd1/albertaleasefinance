@@ -1,0 +1,217 @@
+---
+import { BUSINESS } from "@/data/client";
+import { getCurrentYear } from "@/js/utils";
+import navData from "@/data/navData.json";
+
+const year = getCurrentYear();
+
+const services = [
+  { label: "Vehicle Financing", href: "/vehicle-financing/" },
+  { label: "Auto Refinancing", href: "/refinance/" },
+  { label: "Commercial Leasing", href: "/commercial-financing/" },
+  { label: "Equipment Financing", href: "/equipment-financing/" },
+  { label: "Bad Credit Loans", href: "/bad-credit/" },
+];
+
+const resources = [
+  { label: "Refinance Calculator", href: "/#calculator" },
+  { label: "How It Works", href: "/#how-it-works" },
+  { label: "FAQ", href: "/faq/" },
+  { label: "Blog", href: "/blog/" },
+  { label: "Privacy Policy", href: "/privacy/" },
+];
+---
+
+<footer
+  id="footer"
+  class="bg-ink text-bone border-bone/10 relative overflow-hidden border-t"
+>
+  <div
+    aria-hidden="true"
+    class="pointer-events-none absolute inset-0 opacity-[0.045]"
+    style="background-image: linear-gradient(to right, rgba(248,244,237,0.55) 1px, transparent 1px), linear-gradient(to bottom, rgba(248,244,237,0.45) 1px, transparent 1px); background-size: 96px 96px;"
+  >
+  </div>
+
+  <div class="relative mx-auto max-w-[88rem] px-5 lg:px-10">
+    <!-- Big wordmark -->
+    <div class="border-bone/10 border-b py-12 lg:py-16">
+      <p
+        class="font-display text-bone/95 text-[clamp(3rem,11vw,11rem)] leading-none select-none"
+      >
+        Alberta <span class="text-bone/40 italic">Leasing</span><br />
+        & Financing<span class="text-accent">.</span>
+      </p>
+    </div>
+
+    <!-- Columns -->
+    <div
+      class="grid grid-cols-1 gap-8 py-12 sm:grid-cols-2 lg:grid-cols-12 lg:gap-10 lg:py-16"
+    >
+      <div class="sm:col-span-2 lg:col-span-4">
+        <p
+          class="font-display text-content-l text-bone max-w-[18rem] leading-tight"
+        >
+          Independent Alberta-based vehicle finance specialists.
+        </p>
+        <p class="text-body-m text-bone/65 mt-4 max-w-[22rem]">
+          Helping drivers and businesses get into vehicles with payments that
+          actually fit — since 2012.
+        </p>
+
+        <ul class="text-body-m mt-8 space-y-2">
+          <li>
+            <a
+              href={BUSINESS.address.mapLink}
+              target="_blank"
+              rel="noopener"
+              class="text-bone/85 hover:text-bone transition-colors"
+            >
+              {BUSINESS.address.lineOne}<br />
+              {BUSINESS.address.city}, {BUSINESS.address.state}
+              {BUSINESS.address.zip}
+            </a>
+          </li>
+          <li>
+            <a
+              href={`tel:${BUSINESS.phoneForTel}`}
+              class="text-bone/85 hover:text-bone transition-colors"
+            >
+              {BUSINESS.phoneFormatted}
+            </a>
+          </li>
+          <li>
+            <a
+              href={`mailto:${BUSINESS.email}`}
+              class="text-bone/85 hover:text-bone transition-colors"
+            >
+              {BUSINESS.email}
+            </a>
+          </li>
+        </ul>
+      </div>
+
+      <div class="lg:col-span-2 lg:col-start-6">
+        <h3
+          class="text-accent-bright mb-5 text-[0.75rem] font-semibold tracking-[0.22em] uppercase"
+        >
+          Explore
+        </h3>
+        <ul class="space-y-3">
+          {
+            navData.map((entry) => (
+              <li>
+                <a
+                  href={entry.url}
+                  class="text-body-m text-bone/80 hover:text-bone transition-colors"
+                >
+                  {entry.key}
+                </a>
+              </li>
+            ))
+          }
+        </ul>
+      </div>
+
+      <div class="lg:col-span-3">
+        <h3
+          class="text-accent-bright mb-5 text-[0.75rem] font-semibold tracking-[0.22em] uppercase"
+        >
+          Services
+        </h3>
+        <ul class="space-y-3">
+          {
+            services.map((s) => (
+              <li>
+                <a
+                  href={s.href}
+                  class="text-body-m text-bone/80 hover:text-bone transition-colors"
+                >
+                  {s.label}
+                </a>
+              </li>
+            ))
+          }
+        </ul>
+      </div>
+
+      <div class="lg:col-span-2">
+        <h3
+          class="text-accent-bright mb-5 text-[0.75rem] font-semibold tracking-[0.22em] uppercase"
+        >
+          Resources
+        </h3>
+        <ul class="space-y-3">
+          {
+            resources.map((r) => (
+              <li>
+                <a
+                  href={r.href}
+                  class="text-body-m text-bone/80 hover:text-bone transition-colors"
+                >
+                  {r.label}
+                </a>
+              </li>
+            ))
+          }
+        </ul>
+      </div>
+    </div>
+
+    <!-- Bottom strip -->
+    <div
+      class="border-bone/10 flex flex-col gap-4 border-t py-6 sm:flex-row sm:items-center sm:justify-between lg:py-8"
+    >
+      <p class="text-bone/55 text-[0.8125rem]">
+        &copy; {year} Alberta Leasing & Financing. All rights reserved.
+      </p>
+      <div class="flex items-center gap-4">
+        <a
+          href={BUSINESS.socials.facebook}
+          target="_blank"
+          rel="noopener"
+          aria-label="Facebook"
+          class="border-bone/15 text-bone/70 hover:text-bone hover:border-bone/40 grid h-9 w-9 place-items-center rounded-full border transition-colors"
+        >
+          <svg
+            width="14"
+            height="14"
+            viewBox="0 0 24 24"
+            fill="currentColor"
+            aria-hidden="true"
+          >
+            <path
+              d="M22 12a10 10 0 1 0-11.6 9.9v-7H7.9V12h2.5V9.8c0-2.5 1.5-3.9 3.8-3.9 1.1 0 2.2.2 2.2.2v2.4h-1.2c-1.2 0-1.6.8-1.6 1.6V12h2.7l-.4 2.9h-2.3v7A10 10 0 0 0 22 12z"
+            ></path>
+          </svg>
+        </a>
+        <a
+          href={BUSINESS.socials.instagram}
+          target="_blank"
+          rel="noopener"
+          aria-label="Instagram"
+          class="border-bone/15 text-bone/70 hover:text-bone hover:border-bone/40 grid h-9 w-9 place-items-center rounded-full border transition-colors"
+        >
+          <svg
+            width="14"
+            height="14"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="2"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            aria-hidden="true"
+          >
+            <rect x="2" y="2" width="20" height="20" rx="5"></rect>
+            <path d="M16 11.4A4 4 0 1 1 12.6 8 4 4 0 0 1 16 11.4z"></path>
+            <line x1="17.5" y1="6.5" x2="17.5" y2="6.5"></line>
+          </svg>
+        </a>
+        <span class="text-bone/40 ml-2 hidden text-[0.7rem] sm:inline">
+          Licensed broker · Alberta
+        </span>
+      </div>
+    </div>
+  </div>
+</footer>

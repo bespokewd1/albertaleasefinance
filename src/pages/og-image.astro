@@ -1,0 +1,19 @@
+---
+import { Font } from "astro:assets";
+import AlfOgImage from "@/components/Alf/AlfOgImage.astro";
+import "@/styles/global.css";
+---
+
+<html lang="en" class="bg-ink h-[630px] w-[1200px] overflow-hidden">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=1200, initial-scale=1" />
+    <meta name="robots" content="noindex, nofollow" />
+    <title>OG Image Preview</title>
+    <Font cssVariable="--font-display" preload />
+    <Font cssVariable="--font-body" preload />
+  </head>
+  <body class="bg-ink m-0 h-[630px] w-[1200px] overflow-hidden">
+    <AlfOgImage />
+  </body>
+</html>

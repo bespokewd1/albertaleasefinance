@@ -11,7 +11,7 @@ export default defineConfig({
   integrations: [
       icon(),
       sitemap({
-          filter: (page) => !page.includes("/admin"),
+          filter: (page) => !page.includes("/admin") && !page.includes("/og-image"),
           changefreq: "weekly",
           priority: 0.7,
       }),

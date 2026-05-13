@@ -7,6 +7,7 @@ import "@/styles/global.css";
 import AlfHeader from "@/components/Alf/AlfHeader.astro";
 import AlfFooter from "@/components/Alf/AlfFooter.astro";
 import Meta from "@/components/Meta/Meta.astro";
+import ogImage from "@/assets/images/og-img.webp";
 
 import { SITE } from "@/data/client";
 
@@ -25,7 +26,7 @@ const { description, title, heroImage } = Astro.props as Props;
   <head>
     <ClientRouter />
 
-    <Meta title={title} description={description} heroImage={heroImage}>
+    <Meta title={title} description={description} heroImage={ogImage}>
       <slot name="schema" slot="schema" />
     </Meta>
 

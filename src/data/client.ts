@@ -3,7 +3,7 @@ export const SITE = {
 	title: "Alberta Leasing & Financing",
 	tagline: "Drive More. Pay Less.",
 	description: "Fast vehicle financing, refinancing, and commercial leasing across Alberta. Get pre-approved in minutes — competitive rates, all credit types welcome.",
-	url: "https://www.albertaleasefinance.ca",
+	url: "https://ableasingandfinancing.ca",
 	author: "Alberta Leasing & Financing",
 	locale: "en",
 };

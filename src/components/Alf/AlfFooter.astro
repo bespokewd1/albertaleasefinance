@@ -6,20 +6,26 @@ import navData from "@/data/navData.json";
 const year = getCurrentYear();
 
 const services = [
-  { label: "Vehicle Financing", href: "/vehicle-financing/" },
-  { label: "Auto Refinancing", href: "/refinance/" },
-  { label: "Commercial Leasing", href: "/commercial-financing/" },
-  { label: "Equipment Financing", href: "/equipment-financing/" },
-  { label: "Bad Credit Loans", href: "/bad-credit/" },
+  { label: "Vehicle Financing", href: "/#vehicle-financing" },
+  { label: "Auto Refinancing", href: "/#refinance" },
+  { label: "Commercial Leasing", href: "/#commercial-financing" },
 ];
 
 const resources = [
   { label: "Refinance Calculator", href: "/#calculator" },
   { label: "How It Works", href: "/#how-it-works" },
-  { label: "FAQ", href: "/faq/" },
-  { label: "Blog", href: "/blog/" },
-  { label: "Privacy Policy", href: "/privacy/" },
 ];
+
+const exploreServiceLabels = new Set([
+  "Services",
+  "Vehicle Financing",
+  "Refinance",
+  "Commercial Financing",
+]);
+
+const exploreLinks = navData.filter(
+  (entry) => !exploreServiceLabels.has(entry.key),
+);
 ---
 
 <footer
@@ -99,7 +105,7 @@ const resources = [
         </h3>
         <ul class="space-y-3">
           {
-            navData.map((entry) => (
+            exploreLinks.map((entry) => (
               <li>
                 <a
                   href={entry.url}
@@ -209,7 +215,15 @@ const resources = [
           </svg>
         </a>
         <span class="text-bone/40 ml-2 hidden text-[0.7rem] sm:inline">
-          Licensed broker · Alberta
+          Digital Marketing by{" "}
+          <a
+            href="https://bespokewebdesign.ca/"
+            target="_blank"
+            rel="noopener"
+            class="hover:text-bone transition-colors"
+          >
+            Bespoke Web Design
+          </a>
         </span>
       </div>
     </div>

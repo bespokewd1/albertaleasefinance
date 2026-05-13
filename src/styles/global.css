@@ -92,6 +92,9 @@
     scroll-behavior: smooth;
     -webkit-text-size-adjust: 100%;
   }
+  main [id] {
+    scroll-margin-top: 6rem;
+  }
   body {
     background-color: var(--color-bone);
     color: var(--color-ink);

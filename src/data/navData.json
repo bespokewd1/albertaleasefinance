@@ -6,27 +6,27 @@
   },
   {
     "key": "Vehicle Financing",
-    "url": "/vehicle-financing/",
+    "url": "/#vehicle-financing",
     "children": []
   },
   {
     "key": "Refinance",
-    "url": "/refinance/",
+    "url": "/#refinance",
     "children": []
   },
   {
     "key": "Commercial Financing",
-    "url": "/commercial-financing/",
+    "url": "/#commercial-financing",
     "children": []
   },
   {
     "key": "About",
-    "url": "/about/",
+    "url": "/#why-us",
     "children": []
   },
   {
     "key": "Contact",
-    "url": "/contact/",
+    "url": "/#lead-form",
     "children": []
   }
 ]

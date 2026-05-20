@@ -1,6 +1,8 @@
 ---
+import { Image } from "astro:assets";
 import navData from "@/data/navData.json";
 import { BUSINESS } from "@/data/client";
+import siteLogo from "@/assets/images/site-logo.webp";
 
 const currentPath = Astro.url.pathname;
 ---
@@ -16,28 +18,15 @@ const currentPath = Astro.url.pathname;
         <a
           href="/"
           aria-label="Alberta Leasing & Financing — Home"
-          class="group flex items-center gap-3 shrink-0"
+          class="group flex items-center shrink-0"
         >
-          <span
-            class="relative inline-grid place-items-center w-11 h-11 rounded-full bg-ink text-bone font-display text-content-l leading-none transition-transform duration-300 group-hover:rotate-[-8deg]"
-          >
-            <span class="-mt-0.5 italic">a</span>
-            <span
-              class="absolute -bottom-1 -right-1 w-3 h-3 rounded-full bg-accent ring-4 ring-bone"
-            ></span>
-          </span>
-          <span class="hidden sm:flex flex-col leading-none">
-            <span
-              class="font-display text-[1.0625rem] tracking-tight text-ink"
-            >
-              Alberta Leasing
-            </span>
-            <span
-              class="text-[0.65rem] uppercase tracking-[0.28em] text-muted mt-1 font-medium"
-            >
-              & Financing · AB
-            </span>
-          </span>
+          <Image
+            src={siteLogo}
+            alt="Alberta Leasing & Financing"
+            class="h-9 lg:h-11 w-auto"
+            loading="eager"
+            decoding="sync"
+          />
         </a>
 
         <!-- Desktop nav -->

@@ -5,7 +5,7 @@
 <section
   id="calculator"
   aria-labelledby="calc-title"
-  class="relative bg-ink text-bone py-20 lg:py-28 overflow-hidden"
+  class="relative bg-ink text-surface py-20 lg:py-28 overflow-hidden"
 >
   <!-- Decorative gradient mesh -->
   <div
@@ -30,16 +30,16 @@
     <div class="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-16 items-start">
       <!-- LEFT: header -->
       <div class="lg:col-span-5">
-        <p class="alf-eyebrow text-bone/70">Refinance Savings Calculator</p>
+        <p class="alf-eyebrow text-surface/70">Refinance Savings Calculator</p>
         <h2
           id="calc-title"
-          class="mt-5 font-display text-section-xl text-bone leading-[1.05]"
+          class="mt-5 font-display text-section-xl text-surface leading-[1.05]"
         >
           See how much you<br />
           <span class="italic text-accent-bright">could save.</span>
         </h2>
-        <p class="mt-6 text-body-l text-bone/75 max-w-[26rem]">
-          Most Alberta drivers save <strong class="text-bone">$80–$220</strong> a month
+        <p class="mt-6 text-body-l text-surface/75 max-w-[26rem]">
+          Most Alberta drivers save <strong class="text-surface">$80–$220</strong> a month
           when they refinance with us. Plug in your numbers below — no commitment,
           no credit check.
         </p>
@@ -52,11 +52,11 @@
               { v: "4.99%", l: "Rates from" },
               { v: "24h", l: "Avg approval" },
             ].map((s) => (
-              <div class="border-l border-bone/15 pl-4">
-                <dt class="text-[0.7rem] uppercase tracking-[0.2em] text-bone/55 font-medium">
+              <div class="border-l border-surface/15 pl-4">
+                <dt class="text-[0.7rem] uppercase tracking-[0.2em] text-surface/55 font-medium">
                   {s.l}
                 </dt>
-                <dd class="mt-1 font-display text-content-l text-bone">
+                <dd class="mt-1 font-display text-content-l text-surface">
                   {s.v}
                 </dd>
               </div>
@@ -68,7 +68,7 @@
       <!-- RIGHT: calculator -->
       <div class="lg:col-span-7">
         <div
-          class="relative bg-bone text-ink rounded-[2rem] p-7 sm:p-9 lg:p-10 shadow-[0_40px_120px_-30px_rgba(0,0,0,0.5)]"
+          class="relative bg-surface text-ink rounded-[2rem] p-7 sm:p-9 lg:p-10 shadow-[0_40px_120px_-30px_rgba(0,0,0,0.5)]"
         >
           <!-- offset accent ring -->
           <div
@@ -78,7 +78,7 @@
           </div>
           <div
             aria-hidden="true"
-            class="absolute -top-2 -right-2 w-16 h-16 rounded-full bg-accent text-bone grid place-items-center font-display text-content-l italic"
+            class="absolute -top-2 -right-2 w-16 h-16 rounded-full bg-accent text-surface grid place-items-center font-display text-content-l italic"
           >
             $
           </div>
@@ -195,11 +195,11 @@
 
             <!-- Result panel -->
             <div
-              class="sm:col-span-2 mt-3 grid grid-cols-1 sm:grid-cols-3 rounded-2xl bg-ink text-bone overflow-hidden"
+              class="sm:col-span-2 mt-3 grid grid-cols-1 sm:grid-cols-3 rounded-2xl bg-ink text-surface overflow-hidden"
             >
-              <div class="p-5 sm:p-6 sm:border-r border-bone/10">
+              <div class="p-5 sm:p-6 sm:border-r border-surface/10">
                 <p
-                  class="text-[0.7rem] uppercase tracking-[0.18em] text-bone/60 font-semibold"
+                  class="text-[0.7rem] uppercase tracking-[0.18em] text-surface/60 font-semibold"
                 >
                   Estimated Monthly Savings
                 </p>
@@ -210,14 +210,14 @@
                   $0
                 </p>
               </div>
-              <div class="p-5 sm:p-6 sm:border-r border-bone/10">
+              <div class="p-5 sm:p-6 sm:border-r border-surface/10">
                 <p
-                  class="text-[0.7rem] uppercase tracking-[0.18em] text-bone/60 font-semibold"
+                  class="text-[0.7rem] uppercase tracking-[0.18em] text-surface/60 font-semibold"
                 >
                   Total Savings
                 </p>
                 <p
-                  class="mt-2 font-display text-content-xl text-bone leading-none"
+                  class="mt-2 font-display text-content-xl text-surface leading-none"
                   data-calc-out="total"
                 >
                   $0
@@ -225,12 +225,12 @@
               </div>
               <div class="p-5 sm:p-6">
                 <p
-                  class="text-[0.7rem] uppercase tracking-[0.18em] text-bone/60 font-semibold"
+                  class="text-[0.7rem] uppercase tracking-[0.18em] text-surface/60 font-semibold"
                 >
                   Estimated New Rate
                 </p>
                 <p
-                  class="mt-2 font-display text-content-xl text-bone leading-none font-mono"
+                  class="mt-2 font-display text-content-xl text-surface leading-none font-mono"
                   data-calc-out="newrate"
                 >
                   —

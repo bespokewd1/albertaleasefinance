@@ -55,7 +55,7 @@ const services = [
 <section
   id="services"
   aria-labelledby="services-title"
-  class="relative bg-bone py-20 lg:py-28"
+  class="relative bg-surface py-20 lg:py-28"
 >
   <div class="mx-auto max-w-[88rem] px-5 lg:px-10">
     <!-- Section header -->
@@ -89,7 +89,7 @@ const services = [
             class:list={[
               "group relative overflow-hidden rounded-[1.75rem] border flex flex-col transition-transform duration-500 hover:-translate-y-1",
               s.theme === "dark"
-                ? "bg-ink text-bone border-ink lg:-mt-6 lg:mb-6"
+                ? "bg-ink text-surface border-ink lg:-mt-6 lg:mb-6"
                 : "bg-paper text-ink border-line-soft",
             ]}
           >
@@ -120,8 +120,8 @@ const services = [
                 class:list={[
                   "absolute top-5 left-5 text-[0.7rem] uppercase tracking-[0.22em] font-semibold px-3 py-1.5 rounded-full backdrop-blur-md",
                   s.theme === "dark"
-                    ? "bg-bone/15 text-bone"
-                    : "bg-ink/85 text-bone",
+                    ? "bg-surface/15 text-surface"
+                    : "bg-ink/85 text-surface",
                 ]}
               >
                 {s.eyebrow}
@@ -137,7 +137,7 @@ const services = [
               <h3
                 class:list={[
                   "font-display text-content-xl leading-tight",
-                  s.theme === "dark" ? "text-bone" : "text-ink",
+                  s.theme === "dark" ? "text-surface" : "text-ink",
                 ]}
               >
                 {s.title}
@@ -145,7 +145,7 @@ const services = [
               <p
                 class:list={[
                   "mt-3 text-body-m",
-                  s.theme === "dark" ? "text-bone/70" : "text-graphite",
+                  s.theme === "dark" ? "text-surface/70" : "text-graphite",
                 ]}
               >
                 {s.blurb}
@@ -162,7 +162,7 @@ const services = [
                     />
                     <span
                       class:list={[
-                        s.theme === "dark" ? "text-bone/85" : "text-ink/85",
+                        s.theme === "dark" ? "text-surface/85" : "text-ink/85",
                       ]}
                     >
                       {b}
@@ -176,7 +176,7 @@ const services = [
                 class:list={[
                   "mt-8 inline-flex items-center gap-2 font-semibold text-[0.9375rem] self-start group/cta",
                   s.theme === "dark"
-                    ? "text-accent-bright hover:text-bone"
+                    ? "text-accent-bright hover:text-surface"
                     : "text-ink hover:text-primary",
                 ]}
               >
@@ -193,7 +193,7 @@ const services = [
               aria-hidden="true"
               class:list={[
                 "absolute top-5 right-5 font-mono text-[0.7rem] tracking-tight opacity-50",
-                s.theme === "dark" ? "text-bone" : "text-muted",
+                s.theme === "dark" ? "text-surface" : "text-muted",
               ]}
             >
               0{i + 1} / 03

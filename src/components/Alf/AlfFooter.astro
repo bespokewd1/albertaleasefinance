@@ -30,7 +30,7 @@ const exploreLinks = navData.filter(
 
 <footer
   id="footer"
-  class="bg-ink text-bone border-bone/10 relative overflow-hidden border-t"
+  class="bg-ink text-surface border-surface/10 relative overflow-hidden border-t"
 >
   <div
     aria-hidden="true"
@@ -41,11 +41,11 @@ const exploreLinks = navData.filter(
 
   <div class="relative mx-auto max-w-[88rem] px-5 lg:px-10">
     <!-- Big wordmark -->
-    <div class="border-bone/10 border-b py-12 lg:py-16">
+    <div class="border-surface/10 border-b py-12 lg:py-16">
       <p
-        class="font-display text-bone/95 text-[clamp(3rem,11vw,11rem)] leading-none select-none"
+        class="font-display text-surface/95 text-[clamp(3rem,11vw,11rem)] leading-none select-none"
       >
-        Alberta <span class="text-bone/40 italic">Leasing</span><br />
+        Alberta <span class="text-surface/40 italic">Leasing</span><br />
         & Financing<span class="text-accent">.</span>
       </p>
     </div>
@@ -56,11 +56,11 @@ const exploreLinks = navData.filter(
     >
       <div class="sm:col-span-2 lg:col-span-4">
         <p
-          class="font-display text-content-l text-bone max-w-[18rem] leading-tight"
+          class="font-display text-content-l text-surface max-w-[18rem] leading-tight"
         >
           Independent Alberta-based vehicle finance specialists.
         </p>
-        <p class="text-body-m text-bone/65 mt-4 max-w-[22rem]">
+        <p class="text-body-m text-surface/65 mt-4 max-w-[22rem]">
           Helping drivers and businesses get into vehicles with payments that
           actually fit — since 2012.
         </p>
@@ -71,7 +71,7 @@ const exploreLinks = navData.filter(
               href={BUSINESS.address.mapLink}
               target="_blank"
               rel="noopener"
-              class="text-bone/85 hover:text-bone transition-colors"
+              class="text-surface/85 hover:text-surface transition-colors"
             >
               {BUSINESS.address.lineOne}<br />
               {BUSINESS.address.city}, {BUSINESS.address.state}
@@ -81,7 +81,7 @@ const exploreLinks = navData.filter(
           <li>
             <a
               href={`tel:${BUSINESS.phoneForTel}`}
-              class="text-bone/85 hover:text-bone transition-colors"
+              class="text-surface/85 hover:text-surface transition-colors"
             >
               {BUSINESS.phoneFormatted}
             </a>
@@ -89,7 +89,7 @@ const exploreLinks = navData.filter(
           <li>
             <a
               href={`mailto:${BUSINESS.email}`}
-              class="text-bone/85 hover:text-bone transition-colors"
+              class="text-surface/85 hover:text-surface transition-colors"
             >
               {BUSINESS.email}
             </a>
@@ -109,7 +109,7 @@ const exploreLinks = navData.filter(
               <li>
                 <a
                   href={entry.url}
-                  class="text-body-m text-bone/80 hover:text-bone transition-colors"
+                  class="text-body-m text-surface/80 hover:text-surface transition-colors"
                 >
                   {entry.key}
                 </a>
@@ -131,7 +131,7 @@ const exploreLinks = navData.filter(
               <li>
                 <a
                   href={s.href}
-                  class="text-body-m text-bone/80 hover:text-bone transition-colors"
+                  class="text-body-m text-surface/80 hover:text-surface transition-colors"
                 >
                   {s.label}
                 </a>
@@ -153,7 +153,7 @@ const exploreLinks = navData.filter(
               <li>
                 <a
                   href={r.href}
-                  class="text-body-m text-bone/80 hover:text-bone transition-colors"
+                  class="text-body-m text-surface/80 hover:text-surface transition-colors"
                 >
                   {r.label}
                 </a>
@@ -166,9 +166,9 @@ const exploreLinks = navData.filter(
 
     <!-- Bottom strip -->
     <div
-      class="border-bone/10 flex flex-col gap-4 border-t py-6 sm:flex-row sm:items-center sm:justify-between lg:py-8"
+      class="border-surface/10 flex flex-col gap-4 border-t py-6 sm:flex-row sm:items-center sm:justify-between lg:py-8"
     >
-      <p class="text-bone/55 text-[0.8125rem]">
+      <p class="text-surface/55 text-[0.8125rem]">
         &copy; {year} Alberta Leasing & Financing. All rights reserved.
       </p>
       <div class="flex items-center gap-4">
@@ -177,7 +177,7 @@ const exploreLinks = navData.filter(
           target="_blank"
           rel="noopener"
           aria-label="Facebook"
-          class="border-bone/15 text-bone/70 hover:text-bone hover:border-bone/40 grid h-9 w-9 place-items-center rounded-full border transition-colors"
+          class="border-surface/15 text-surface/70 hover:text-surface hover:border-surface/40 grid h-9 w-9 place-items-center rounded-full border transition-colors"
         >
           <svg
             width="14"
@@ -196,7 +196,7 @@ const exploreLinks = navData.filter(
           target="_blank"
           rel="noopener"
           aria-label="Instagram"
-          class="border-bone/15 text-bone/70 hover:text-bone hover:border-bone/40 grid h-9 w-9 place-items-center rounded-full border transition-colors"
+          class="border-surface/15 text-surface/70 hover:text-surface hover:border-surface/40 grid h-9 w-9 place-items-center rounded-full border transition-colors"
         >
           <svg
             width="14"
@@ -214,13 +214,13 @@ const exploreLinks = navData.filter(
             <line x1="17.5" y1="6.5" x2="17.5" y2="6.5"></line>
           </svg>
         </a>
-        <span class="text-bone/40 ml-2 hidden text-[0.7rem] sm:inline">
+        <span class="text-surface/40 ml-2 hidden text-[0.7rem] sm:inline">
           Digital Marketing by{" "}
           <a
             href="https://bespokewebdesign.ca/"
             target="_blank"
             rel="noopener"
-            class="hover:text-bone transition-colors"
+            class="hover:text-surface transition-colors"
           >
             Bespoke Web Design
           </a>

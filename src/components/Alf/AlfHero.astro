@@ -3,7 +3,7 @@ import { Picture } from "astro:assets";
 import heroBg from "@/assets/images/cars/car2.webp";
 ---
 
-<section id="hero" class="bg-ink text-bone relative isolate overflow-hidden">
+<section id="hero" class="bg-ink text-surface relative isolate overflow-hidden">
   <!-- Background image -->
   <div class="absolute inset-0 -z-10">
     <Picture
@@ -48,17 +48,17 @@ import heroBg from "@/assets/images/cars/car2.webp";
       <div class="lg:col-span-7 xl:col-span-7">
         <div
           data-rise
-          class="alf-eyebrow text-bone/80 mb-6"
+          class="alf-eyebrow text-surface/80 mb-6"
           style="animation-delay: 0.05s;"
         >
-          <span class="!bg-bone/80"></span>Alberta&rsquo;s Trusted Finance
+          <span class="!bg-surface/80"></span>Alberta&rsquo;s Trusted Finance
           Partner
         </div>
 
         <h1
           data-rise
           style="animation-delay: 0.15s;"
-          class="font-display text-hero-xxl text-bone font-medium"
+          class="font-display text-hero-xxl text-surface font-medium"
         >
           Drive More.<br />
           <span class="text-accent-bright font-normal italic">Pay Less.</span>
@@ -67,7 +67,7 @@ import heroBg from "@/assets/images/cars/car2.webp";
         <p
           data-rise
           style="animation-delay: 0.3s;"
-          class="text-body-l text-bone/80 mt-6 max-w-[34rem]"
+          class="text-body-l text-surface/80 mt-6 max-w-[34rem]"
         >
           Fast vehicle financing, refinancing, and commercial leasing solutions
           tailored to your budget. Get pre-approved across Alberta in minutes —
@@ -97,7 +97,7 @@ import heroBg from "@/assets/images/cars/car2.webp";
           </a>
           <a
             href="#calculator"
-            class="alf-btn !text-bone border-bone/30 hover:!bg-bone hover:!text-ink border !bg-transparent"
+            class="alf-btn !text-surface border-surface/30 hover:!bg-surface hover:!text-ink border !bg-transparent"
           >
             Calculate Savings
           </a>
@@ -116,8 +116,8 @@ import heroBg from "@/assets/images/cars/car2.webp";
               { label: "All Credit Types", sub: "Yes, even rebuild" },
               { label: "Alberta Based", sub: "Local support" },
             ].map((t) => (
-              <li class="border-bone/20 flex flex-col gap-1 border-l pl-4">
-                <span class="text-bone flex items-center gap-1.5 text-[0.875rem] font-semibold">
+              <li class="border-surface/20 flex flex-col gap-1 border-l pl-4">
+                <span class="text-surface flex items-center gap-1.5 text-[0.875rem] font-semibold">
                   <svg
                     width="14"
                     height="14"
@@ -134,7 +134,7 @@ import heroBg from "@/assets/images/cars/car2.webp";
                   </svg>
                   {t.label}
                 </span>
-                <span class="text-bone/60 ml-[1.375rem] text-[0.75rem]">
+                <span class="text-surface/60 ml-[1.375rem] text-[0.75rem]">
                   {t.sub}
                 </span>
               </li>
@@ -159,7 +159,7 @@ import heroBg from "@/assets/images/cars/car2.webp";
           </div>
 
           <div
-            class="bg-bone text-ink border-bone-soft relative rounded-[1.75rem] border p-7 shadow-[0_30px_80px_-20px_rgba(0,0,0,0.4)] sm:p-9"
+            class="bg-surface text-ink border-surface-soft relative rounded-[1.75rem] border p-7 shadow-[0_30px_80px_-20px_rgba(0,0,0,0.4)] sm:p-9"
           >
             <div class="mb-7 flex items-start justify-between gap-4">
               <div>
@@ -172,7 +172,7 @@ import heroBg from "@/assets/images/cars/car2.webp";
               </div>
               <div
                 aria-hidden="true"
-                class="bg-ink text-bone grid h-12 w-12 shrink-0 place-items-center rounded-full"
+                class="bg-ink text-surface grid h-12 w-12 shrink-0 place-items-center rounded-full"
               >
                 <svg
                   width="20"
@@ -310,7 +310,7 @@ import heroBg from "@/assets/images/cars/car2.webp";
   <!-- Bottom transition -->
   <div
     aria-hidden="true"
-    class="bg-bone border-bone/40 absolute inset-x-0 bottom-0 h-8 border-t"
+    class="bg-surface border-surface/40 absolute inset-x-0 bottom-0 h-8 border-t"
   >
   </div>
 </section>

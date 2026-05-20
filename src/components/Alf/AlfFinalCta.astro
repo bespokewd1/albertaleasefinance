@@ -5,7 +5,7 @@ import { BUSINESS } from "@/data/client";
 <section
   id="final-cta"
   aria-labelledby="final-cta-title"
-  class="bg-ink text-bone relative overflow-hidden py-20 lg:py-28"
+  class="bg-ink text-surface relative overflow-hidden py-20 lg:py-28"
 >
   <div
     aria-hidden="true"
@@ -16,17 +16,17 @@ import { BUSINESS } from "@/data/client";
 
   <div
     aria-hidden="true"
-    class="via-bone/25 absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent to-transparent"
+    class="via-surface/25 absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent to-transparent"
   >
   </div>
 
   <div class="relative mx-auto max-w-[88rem] px-5 lg:px-10">
     <div class="grid grid-cols-1 items-end gap-10 lg:grid-cols-12 lg:gap-14">
       <div class="lg:col-span-7">
-        <p class="alf-eyebrow text-bone/70">Last Stop</p>
+        <p class="alf-eyebrow text-surface/70">Last Stop</p>
         <h2
           id="final-cta-title"
-          class="font-display text-section-xl text-bone mt-5 max-w-[18ch] leading-[1.03]"
+          class="font-display text-section-xl text-surface mt-5 max-w-[18ch] leading-[1.03]"
         >
           Ready to drive away with
           <span class="text-accent-bright italic">a better payment?</span>
@@ -34,7 +34,7 @@ import { BUSINESS } from "@/data/client";
       </div>
 
       <div class="lg:col-span-5">
-        <p class="text-body-l text-bone/75 max-w-[31rem] lg:ml-auto">
+        <p class="text-body-l text-surface/75 max-w-[31rem] lg:ml-auto">
           Compare lender options, refinance an existing loan, or get a new
           vehicle approval started with a Calgary-based advisor.
         </p>
@@ -58,7 +58,7 @@ import { BUSINESS } from "@/data/client";
           </a>
           <a
             href={`tel:${BUSINESS.phoneForTel}`}
-            class="alf-btn !text-bone border-bone/30 hover:!bg-bone hover:!text-ink border !bg-transparent"
+            class="alf-btn !text-surface border-surface/30 hover:!bg-surface hover:!text-ink border !bg-transparent"
           >
             {BUSINESS.phoneFormatted}
           </a>
@@ -71,11 +71,11 @@ import { BUSINESS } from "@/data/client";
               { value: "No", label: "Credit pull" },
               { value: "AB", label: "Local broker" },
             ].map((item) => (
-              <li class="border-bone/20 border-l pl-4">
-                <span class="font-display text-content-m text-bone block leading-none">
+              <li class="border-surface/20 border-l pl-4">
+                <span class="font-display text-content-m text-surface block leading-none">
                   {item.value}
                 </span>
-                <span class="text-bone/55 mt-2 block text-[0.7rem] font-semibold tracking-[0.18em] uppercase">
+                <span class="text-surface/55 mt-2 block text-[0.7rem] font-semibold tracking-[0.18em] uppercase">
                   {item.label}
                 </span>
               </li>

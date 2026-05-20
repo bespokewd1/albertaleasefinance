@@ -22,7 +22,7 @@ interface Props {
 const { description, title, heroImage } = Astro.props as Props;
 ---
 
-<html lang={SITE.locale} class="bg-bone">
+<html lang={SITE.locale} class="bg-surface">
   <head>
     <ClientRouter />
 
@@ -36,9 +36,9 @@ const { description, title, heroImage } = Astro.props as Props;
 
     {heroImage && <link rel="preload" href={heroImage.src} as="image" />}
   </head>
-  <body class="bg-bone text-ink font-body antialiased">
+  <body class="bg-surface text-ink font-body antialiased">
     <a
-      class="sr-only focus:not-sr-only focus:fixed focus:top-4 focus:left-4 focus:z-[9999] focus:bg-ink focus:text-bone focus:px-4 focus:py-2 focus:rounded-full"
+      class="sr-only focus:not-sr-only focus:fixed focus:top-4 focus:left-4 focus:z-[9999] focus:bg-ink focus:text-surface focus:px-4 focus:py-2 focus:rounded-full"
       href="#main"
     >
       Skip to main content

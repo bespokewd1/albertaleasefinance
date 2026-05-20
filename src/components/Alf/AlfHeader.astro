@@ -11,19 +11,19 @@ const currentPath = Astro.url.pathname;
   data-alf-header
   class="fixed inset-x-0 top-0 z-50 transition-all duration-300"
 >
-  <div class="alf-grain bg-surface/85 backdrop-blur-md border-b border-line-soft">
+  <div class="alf-grain bg-surface border-line-soft border-b backdrop-blur-md">
     <div class="mx-auto max-w-[88rem] px-5 lg:px-10">
-      <div class="flex items-center justify-between gap-6 py-3 lg:py-4">
+      <div class="flex h-[68px] items-center justify-between gap-6 lg:h-[80px]">
         <!-- Brand -->
         <a
           href="/"
           aria-label="Alberta Leasing & Financing — Home"
-          class="group flex items-center shrink-0"
+          class="group flex h-full shrink-0 items-center"
         >
           <Image
             src={siteLogo}
             alt="Alberta Leasing & Financing"
-            class="h-9 lg:h-11 w-auto"
+            class="h-full w-auto object-contain"
             loading="eager"
             decoding="sync"
           />
@@ -32,14 +32,14 @@ const currentPath = Astro.url.pathname;
         <!-- Desktop nav -->
         <nav
           aria-label="Primary"
-          class="hidden lg:flex items-center gap-7 mx-auto"
+          class="mx-auto hidden items-center gap-7 lg:flex"
         >
           {
             navData.map((entry) => (
               <a
                 href={entry.url}
                 data-active={currentPath === entry.url ? "true" : "false"}
-                class="alf-link text-[0.875rem] font-medium text-graphite hover:text-ink"
+                class="alf-link text-graphite hover:text-ink text-[0.875rem] font-medium"
               >
                 {entry.key}
               </a>
@@ -48,21 +48,32 @@ const currentPath = Astro.url.pathname;
         </nav>
 
         <!-- Right cluster -->
-        <div class="flex items-center gap-2 lg:gap-4 shrink-0">
+        <div class="flex shrink-0 items-center gap-2 lg:gap-4">
           <a
             href={`tel:${BUSINESS.phoneForTel}`}
-            class="hidden xl:inline-flex items-center gap-2 text-[0.8125rem] font-medium text-graphite hover:text-ink transition-colors"
+            class="text-graphite hover:text-ink hidden items-center gap-2 text-[0.8125rem] font-medium transition-colors xl:inline-flex"
           >
-            <span class="w-1.5 h-1.5 rounded-full bg-success animate-pulse"></span>
+            <span class="bg-success h-1.5 w-1.5 animate-pulse rounded-full"
+            ></span>
             {BUSINESS.phoneFormatted}
           </a>
           <a
             href="/#lead-form"
-            class="alf-btn alf-btn-accent !py-3 !px-5 text-[0.8125rem]"
+            class="alf-btn alf-btn-accent !px-5 !py-3 text-[0.8125rem]"
           >
             Apply Now
-            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-              <path d="M5 12h14M13 5l7 7-7 7"/>
+            <svg
+              width="14"
+              height="14"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="2.2"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              aria-hidden="true"
+            >
+              <path d="M5 12h14M13 5l7 7-7 7"></path>
             </svg>
           </a>
           <button
@@ -72,12 +83,18 @@ const currentPath = Astro.url.pathname;
             aria-controls="alf-mobile-menu"
             aria-expanded="false"
             aria-label="Open menu"
-            class="lg:hidden relative w-11 h-11 grid place-items-center rounded-full border border-line bg-paper text-ink"
+            class="border-line bg-paper text-ink relative grid h-11 w-11 place-items-center rounded-full border lg:hidden"
           >
-            <span class="alf-burger relative w-5 h-3.5">
-              <span class="absolute left-0 right-0 top-0 h-[2px] bg-current rounded transition-transform duration-300 origin-center"></span>
-              <span class="absolute left-0 right-0 top-1/2 -translate-y-1/2 h-[2px] bg-current rounded transition-opacity duration-300"></span>
-              <span class="absolute left-0 right-0 bottom-0 h-[2px] bg-current rounded transition-transform duration-300 origin-center"></span>
+            <span class="alf-burger relative h-3.5 w-5">
+              <span
+                class="absolute top-0 right-0 left-0 h-[2px] origin-center rounded bg-current transition-transform duration-300"
+              ></span>
+              <span
+                class="absolute top-1/2 right-0 left-0 h-[2px] -translate-y-1/2 rounded bg-current transition-opacity duration-300"
+              ></span>
+              <span
+                class="absolute right-0 bottom-0 left-0 h-[2px] origin-center rounded bg-current transition-transform duration-300"
+              ></span>
             </span>
           </button>
         </div>
@@ -90,20 +107,20 @@ const currentPath = Astro.url.pathname;
     id="alf-mobile-menu"
     data-alf-nav-menu
     data-open="false"
-    class="lg:hidden fixed inset-x-0 top-[68px] bottom-0 bg-surface overflow-y-auto data-[open=false]:opacity-0 data-[open=false]:pointer-events-none data-[open=false]:translate-y-2 data-[open=true]:opacity-100 data-[open=true]:translate-y-0 transition-all duration-300"
+    class="bg-surface fixed inset-x-0 top-[68px] bottom-0 overflow-y-auto transition-all duration-300 data-[open=false]:pointer-events-none data-[open=false]:translate-y-2 data-[open=false]:opacity-0 data-[open=true]:translate-y-0 data-[open=true]:opacity-100 lg:hidden"
   >
-    <div class="px-6 pt-8 pb-12 max-w-[88rem] mx-auto">
+    <div class="mx-auto max-w-[88rem] px-6 pt-8 pb-12">
       <nav aria-label="Mobile" class="flex flex-col">
         {
           navData.map((entry, i) => (
             <a
               href={entry.url}
-              class="group flex items-baseline justify-between gap-4 py-5 border-b border-line-soft last:border-b-0"
+              class="group border-line-soft flex items-baseline justify-between gap-4 border-b py-5 last:border-b-0"
             >
-              <span class="font-display text-[2rem] leading-none tracking-tight text-ink group-hover:text-primary transition-colors">
+              <span class="font-display text-ink group-hover:text-primary text-[2rem] leading-none tracking-tight transition-colors">
                 {entry.key}
               </span>
-              <span class="text-[0.7rem] uppercase tracking-[0.2em] text-muted font-medium">
+              <span class="text-muted text-[0.7rem] font-medium tracking-[0.2em] uppercase">
                 0{i + 1}
               </span>
             </a>
@@ -114,7 +131,10 @@ const currentPath = Astro.url.pathname;
         <a href="/#lead-form" class="alf-btn alf-btn-accent w-full">
           Apply Now
         </a>
-        <a href={`tel:${BUSINESS.phoneForTel}`} class="alf-btn alf-btn-ghost w-full">
+        <a
+          href={`tel:${BUSINESS.phoneForTel}`}
+          class="alf-btn alf-btn-ghost w-full"
+        >
           Call {BUSINESS.phoneFormatted}
         </a>
       </div>
@@ -140,7 +160,7 @@ const currentPath = Astro.url.pathname;
 <script>
   function initAlfHeader() {
     const toggle = document.querySelector<HTMLButtonElement>(
-      "[data-alf-nav-toggle]"
+      "[data-alf-nav-toggle]",
     );
     const menu = document.querySelector<HTMLElement>("[data-alf-nav-menu]");
     const header = document.querySelector<HTMLElement>("[data-alf-header]");
@@ -158,14 +178,17 @@ const currentPath = Astro.url.pathname;
       setOpen(menu.dataset.open !== "true");
     });
 
-    menu.querySelectorAll("a").forEach((a) =>
-      a.addEventListener("click", () => setOpen(false))
-    );
+    menu
+      .querySelectorAll("a")
+      .forEach((a) => a.addEventListener("click", () => setOpen(false)));
 
     let lastY = window.scrollY;
     const onScroll = () => {
       const y = window.scrollY;
-      header.classList.toggle("shadow-[0_8px_24px_-12px_rgba(13,20,23,0.18)]", y > 12);
+      header.classList.toggle(
+        "shadow-[0_8px_24px_-12px_rgba(13,20,23,0.18)]",
+        y > 12,
+      );
       lastY = y;
     };
     onScroll();
@@ -176,7 +199,7 @@ const currentPath = Astro.url.pathname;
       () => {
         document.body.style.overflow = "";
       },
-      { once: true }
+      { once: true },
     );
   }
 

@@ -314,3 +314,40 @@ import heroBg from "@/assets/images/cars/car2.webp";
   >
   </div>
 </section>
+
+<script>
+  const focusLeadName = () => {
+    const input = document.querySelector<HTMLInputElement>("#lead-name");
+    if (!input) return;
+
+    input.focus({ preventScroll: true });
+  };
+
+  const scheduleLeadNameFocus = () => {
+    requestAnimationFrame(focusLeadName);
+    window.setTimeout(focusLeadName, 150);
+    window.setTimeout(focusLeadName, 450);
+  };
+
+  function focusLeadFormFromHash() {
+    if (window.location.hash !== "#lead-form") return;
+
+    scheduleLeadNameFocus();
+  }
+
+  document.addEventListener("astro:page-load", () => {
+    focusLeadFormFromHash();
+
+    if (window.__alfLeadFormHashFocusBound) return;
+    window.__alfLeadFormHashFocusBound = true;
+    window.addEventListener("hashchange", focusLeadFormFromHash);
+    document.addEventListener("click", (event) => {
+      const link = (event.target as Element | null)?.closest<HTMLAnchorElement>(
+        'a[href$="#lead-form"]',
+      );
+      if (!link) return;
+
+      scheduleLeadNameFocus();
+    });
+  });
+</script>

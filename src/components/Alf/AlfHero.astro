@@ -329,9 +329,7 @@ import heroBg from "@/assets/images/cars/car2.webp";
     window.setTimeout(focusLeadName, 450);
   };
 
-  const prefillLeadService = () => {
-    const params = new URLSearchParams(window.location.search);
-    const service = params.get("service");
+  const setLeadService = (service: string | null) => {
     if (!service) return;
 
     const allowedServices = new Set(["new", "used", "refinance", "commercial"]);
@@ -342,6 +340,11 @@ import heroBg from "@/assets/images/cars/car2.webp";
 
     select.value = service;
     select.dispatchEvent(new Event("change", { bubbles: true }));
+  };
+
+  const prefillLeadService = () => {
+    const params = new URLSearchParams(window.location.search);
+    setLeadService(params.get("service"));
   };
 
   function focusLeadFormFromHash() {
@@ -363,6 +366,21 @@ import heroBg from "@/assets/images/cars/car2.webp";
       );
       if (!link) return;
 
+      const url = new URL(link.href);
+      const isSamePage =
+        url.origin === window.location.origin &&
+        url.pathname === window.location.pathname;
+      if (!isSamePage) return;
+
+      event.preventDefault();
+      setLeadService(link.dataset.leadService ?? null);
+      history.pushState(null, "", `${window.location.pathname}${window.location.search}#lead-form`);
+      document.querySelector("#lead-form")?.scrollIntoView({
+        behavior: window.matchMedia("(prefers-reduced-motion: reduce)").matches
+          ? "auto"
+          : "smooth",
+        block: "start",
+      });
       scheduleLeadNameFocus();
     });
   });

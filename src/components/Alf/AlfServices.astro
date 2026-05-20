@@ -14,7 +14,8 @@ const services = [
       "New or pre-owned. Quick approvals, flexible terms, payment plans that fit your monthly budget.",
     bullets: ["New vehicles", "Used vehicles", "Flexible payment plans"],
     cta: "Get Vehicle Financing",
-    href: "/?service=new#lead-form",
+    href: "#lead-form",
+    service: "new",
     theme: "light" as const,
   },
   {
@@ -30,7 +31,8 @@ const services = [
       "Consolidate debt",
     ],
     cta: "Refinance Now",
-    href: "/?service=refinance#lead-form",
+    href: "#lead-form",
+    service: "refinance",
     theme: "dark" as const,
   },
   {
@@ -46,7 +48,8 @@ const services = [
       "Business lending solutions",
     ],
     cta: "Get Commercial Leasing",
-    href: "/?service=commercial#lead-form",
+    href: "#lead-form",
+    service: "commercial",
     theme: "light" as const,
   },
 ];
@@ -173,6 +176,7 @@ const services = [
 
               <a
                 href={s.href}
+                data-lead-service={s.service}
                 class:list={[
                   "mt-8 inline-flex items-center gap-2 font-semibold text-[0.9375rem] self-start group/cta",
                   s.theme === "dark"

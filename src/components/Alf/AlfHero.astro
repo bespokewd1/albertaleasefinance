@@ -329,6 +329,21 @@ import heroBg from "@/assets/images/cars/car2.webp";
     window.setTimeout(focusLeadName, 450);
   };
 
+  const prefillLeadService = () => {
+    const params = new URLSearchParams(window.location.search);
+    const service = params.get("service");
+    if (!service) return;
+
+    const allowedServices = new Set(["new", "used", "refinance", "commercial"]);
+    if (!allowedServices.has(service)) return;
+
+    const select = document.querySelector<HTMLSelectElement>("#lead-vehicle");
+    if (!select) return;
+
+    select.value = service;
+    select.dispatchEvent(new Event("change", { bubbles: true }));
+  };
+
   function focusLeadFormFromHash() {
     if (window.location.hash !== "#lead-form") return;
 
@@ -336,6 +351,7 @@ import heroBg from "@/assets/images/cars/car2.webp";
   }
 
   document.addEventListener("astro:page-load", () => {
+    prefillLeadService();
     focusLeadFormFromHash();
 
     if (window.__alfLeadFormHashFocusBound) return;

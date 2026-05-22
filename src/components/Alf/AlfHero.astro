@@ -191,10 +191,20 @@ import heroBg from "@/assets/images/cars/car2.webp";
 
             <form
               class="space-y-4"
+              name="lead"
               data-alf-lead-form
-              action="/api/lead"
+              data-netlify="true"
+              netlify-honeypot="bot-field"
+              action="/"
               method="post"
             >
+              <input type="hidden" name="form-name" value="lead" />
+              <p class="hidden">
+                <label>
+                  Do not fill this out if you are human:
+                  <input name="bot-field" />
+                </label>
+              </p>
               <div>
                 <label for="lead-name" class="sr-only">Full Name</label>
                 <input

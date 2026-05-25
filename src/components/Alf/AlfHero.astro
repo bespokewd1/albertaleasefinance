@@ -335,6 +335,65 @@ import heroBg from "@/assets/images/cars/car2.webp";
   </div>
 </section>
 
+<aside
+  data-alf-lead-toast
+  hidden
+  role="status"
+  aria-live="polite"
+  class="border-accent/25 bg-ink text-surface fixed right-4 bottom-4 z-50 w-[calc(100%-2rem)] max-w-[27rem] rounded-2xl border p-4 opacity-0 shadow-[0_24px_70px_-24px_rgba(0,0,0,0.65)] transition-[opacity,transform] duration-300 sm:top-6 sm:right-6 sm:bottom-auto sm:w-full"
+  style="transform: translateY(0.75rem);"
+>
+  <div class="flex items-start gap-3">
+    <div
+      aria-hidden="true"
+      class="bg-primary-soft text-success mt-0.5 grid h-8 w-8 shrink-0 place-items-center rounded-full"
+    >
+      <svg
+        width="18"
+        height="18"
+        viewBox="0 0 24 24"
+        fill="none"
+        stroke="currentColor"
+        stroke-width="2.5"
+        stroke-linecap="round"
+        stroke-linejoin="round"
+      >
+        <path d="M20 6 9 17l-5-5"></path>
+      </svg>
+    </div>
+    <div class="min-w-0 flex-1">
+      <p class="text-[0.95rem] font-semibold leading-tight">
+        Application received
+      </p>
+      <p class="text-surface/75 mt-1 text-sm leading-relaxed">
+        Thanks, we received your information. Our team will get back to you
+        shortly.
+      </p>
+    </div>
+    <button
+      type="button"
+      data-alf-lead-toast-close
+      aria-label="Close notification"
+      class="text-surface/60 hover:text-surface -mt-1 -mr-1 grid h-8 w-8 shrink-0 place-items-center rounded-full transition-colors"
+    >
+      <svg
+        width="16"
+        height="16"
+        viewBox="0 0 24 24"
+        fill="none"
+        stroke="currentColor"
+        stroke-width="2.2"
+        stroke-linecap="round"
+        stroke-linejoin="round"
+        aria-hidden="true"
+      >
+        <path d="M18 6 6 18"></path>
+        <path d="m6 6 12 12"></path>
+      </svg>
+    </button>
+  </div>
+</aside>
+
 <script>
   const focusLeadName = () => {
     const input = document.querySelector<HTMLInputElement>("#lead-name");
@@ -369,6 +428,7 @@ import heroBg from "@/assets/images/cars/car2.webp";
 
   const LEAD_SUBMIT_KEY = "alfLeadSubmitted";
   const LEAD_SUCCESS_TIMEOUT = 7000;
+  let leadSuccessTimer: number | undefined;
 
   const clearLeadSuccessParam = () => {
     const url = new URL(window.location.href);
@@ -378,22 +438,52 @@ import heroBg from "@/assets/images/cars/car2.webp";
     history.replaceState(null, "", nextUrl);
   };
 
+  const hideLeadSuccessToast = () => {
+    const toast = document.querySelector<HTMLElement>("[data-alf-lead-toast]");
+    if (!toast) return;
+
+    toast.style.transform = "translateY(0.75rem)";
+    toast.classList.add("opacity-0");
+
+    window.setTimeout(() => {
+      toast.hidden = true;
+    }, 300);
+  };
+
+  const showLeadSuccessToast = () => {
+    const toast = document.querySelector<HTMLElement>("[data-alf-lead-toast]");
+    if (!toast) return;
+
+    if (leadSuccessTimer) window.clearTimeout(leadSuccessTimer);
+
+    toast.hidden = false;
+    requestAnimationFrame(() => {
+      toast.style.transform = "translateY(0)";
+      toast.classList.remove("opacity-0");
+    });
+
+    leadSuccessTimer = window.setTimeout(() => {
+      hideLeadSuccessToast();
+    }, LEAD_SUCCESS_TIMEOUT);
+  };
+
   const showLeadSuccess = () => {
     const params = new URLSearchParams(window.location.search);
-    if (params.get("lead") !== "success") return;
+    if (params.get("lead") !== "success") return false;
     if (sessionStorage.getItem(LEAD_SUBMIT_KEY) !== "true") {
       clearLeadSuccessParam();
-      return;
+      return false;
     }
 
     const success = document.querySelector<HTMLElement>(
       "[data-alf-lead-success]",
     );
-    if (!success) return;
+    if (!success) return false;
 
     sessionStorage.removeItem(LEAD_SUBMIT_KEY);
     clearLeadSuccessParam();
     success.hidden = false;
+    showLeadSuccessToast();
     success.scrollIntoView({
       behavior: window.matchMedia("(prefers-reduced-motion: reduce)").matches
         ? "auto"
@@ -404,6 +494,8 @@ import heroBg from "@/assets/images/cars/car2.webp";
     window.setTimeout(() => {
       success.hidden = true;
     }, LEAD_SUCCESS_TIMEOUT);
+
+    return true;
   };
 
   function focusLeadFormFromHash() {
@@ -414,8 +506,16 @@ import heroBg from "@/assets/images/cars/car2.webp";
 
   document.addEventListener("astro:page-load", () => {
     prefillLeadService();
-    showLeadSuccess();
-    focusLeadFormFromHash();
+    const didShowLeadSuccess = showLeadSuccess();
+    if (!didShowLeadSuccess) focusLeadFormFromHash();
+
+    document
+      .querySelectorAll<HTMLButtonElement>("[data-alf-lead-toast-close]")
+      .forEach((button) => {
+        if (button.dataset.closeHandlerBound === "true") return;
+        button.dataset.closeHandlerBound = "true";
+        button.addEventListener("click", hideLeadSuccessToast);
+      });
 
     document
       .querySelectorAll<HTMLFormElement>("[data-alf-lead-form]")

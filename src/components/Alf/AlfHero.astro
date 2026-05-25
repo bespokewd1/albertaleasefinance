@@ -195,7 +195,7 @@ import heroBg from "@/assets/images/cars/car2.webp";
               data-alf-lead-form
               data-netlify="true"
               netlify-honeypot="bot-field"
-              action="/"
+              action="/?lead=success#lead-form"
               method="post"
             >
               <input type="hidden" name="form-name" value="lead" />
@@ -205,6 +205,16 @@ import heroBg from "@/assets/images/cars/car2.webp";
                   <input name="bot-field" />
                 </label>
               </p>
+              <div
+                data-alf-lead-success
+                hidden
+                role="status"
+                class="border-accent/30 bg-accent/10 text-ink rounded-2xl border px-4 py-3 text-sm leading-relaxed"
+              >
+                <strong class="block font-semibold">Application received.</strong>
+                Thanks, we received your information. Our team will get back to
+                you shortly.
+              </div>
               <div>
                 <label for="lead-name" class="sr-only">Full Name</label>
                 <input
@@ -277,7 +287,7 @@ import heroBg from "@/assets/images/cars/car2.webp";
               </div>
 
               <button type="submit" class="alf-btn alf-btn-primary mt-2 w-full">
-                Check My Options
+                <span data-alf-submit-label>Check My Options</span>
                 <svg
                   width="16"
                   height="16"
@@ -357,6 +367,45 @@ import heroBg from "@/assets/images/cars/car2.webp";
     setLeadService(params.get("service"));
   };
 
+  const LEAD_SUBMIT_KEY = "alfLeadSubmitted";
+  const LEAD_SUCCESS_TIMEOUT = 7000;
+
+  const clearLeadSuccessParam = () => {
+    const url = new URL(window.location.href);
+    url.searchParams.delete("lead");
+    const search = url.searchParams.toString();
+    const nextUrl = `${url.pathname}${search ? `?${search}` : ""}${url.hash}`;
+    history.replaceState(null, "", nextUrl);
+  };
+
+  const showLeadSuccess = () => {
+    const params = new URLSearchParams(window.location.search);
+    if (params.get("lead") !== "success") return;
+    if (sessionStorage.getItem(LEAD_SUBMIT_KEY) !== "true") {
+      clearLeadSuccessParam();
+      return;
+    }
+
+    const success = document.querySelector<HTMLElement>(
+      "[data-alf-lead-success]",
+    );
+    if (!success) return;
+
+    sessionStorage.removeItem(LEAD_SUBMIT_KEY);
+    clearLeadSuccessParam();
+    success.hidden = false;
+    success.scrollIntoView({
+      behavior: window.matchMedia("(prefers-reduced-motion: reduce)").matches
+        ? "auto"
+        : "smooth",
+      block: "center",
+    });
+
+    window.setTimeout(() => {
+      success.hidden = true;
+    }, LEAD_SUCCESS_TIMEOUT);
+  };
+
   function focusLeadFormFromHash() {
     if (window.location.hash !== "#lead-form") return;
 
@@ -365,7 +414,31 @@ import heroBg from "@/assets/images/cars/car2.webp";
 
   document.addEventListener("astro:page-load", () => {
     prefillLeadService();
+    showLeadSuccess();
     focusLeadFormFromHash();
+
+    document
+      .querySelectorAll<HTMLFormElement>("[data-alf-lead-form]")
+      .forEach((form) => {
+        if (form.dataset.submitHandlerBound === "true") return;
+        form.dataset.submitHandlerBound = "true";
+
+        form.addEventListener("submit", () => {
+          sessionStorage.setItem(LEAD_SUBMIT_KEY, "true");
+
+          const button = form.querySelector<HTMLButtonElement>(
+            'button[type="submit"]',
+          );
+          const label = form.querySelector<HTMLElement>(
+            "[data-alf-submit-label]",
+          );
+          if (!button) return;
+
+          button.disabled = true;
+          button.setAttribute("aria-busy", "true");
+          if (label) label.textContent = "Submitting...";
+        });
+      });
 
     if (window.__alfLeadFormHashFocusBound) return;
     window.__alfLeadFormHashFocusBound = true;
